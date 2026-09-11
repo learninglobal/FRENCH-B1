@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La famille d'hier à aujourd'hui – Texte à trous DELF B1</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--text:#1f2937;--muted:#6b7280;--accent:#2563eb;--border:#d1d5db;--ok:#15803d;--bad:#b91c1c}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+.wrap{max-width:980px;margin:auto;padding:24px 16px 40px}.hero,.textcard{background:var(--card);border:1px solid var(--border);border-radius:16px}.hero{padding:22px;margin-bottom:18px}.textcard{padding:22px}
+h1{margin:0 0 6px;font-size:clamp(1.7rem,4vw,2.35rem)}.sub{color:var(--muted);margin:0 0 12px}.progress-row{display:flex;justify-content:space-between;gap:10px;margin-top:16px;font-size:.95rem}
+.bar{height:9px;background:#e5e7eb;border-radius:999px;overflow:hidden;margin-top:7px}.bar div{height:100%;width:0;background:var(--accent);transition:width .2s ease}p{margin:0 0 16px}
+.blank-wrap{display:inline-flex;flex-direction:column;vertical-align:middle;margin:2px 3px}select{min-width:150px;max-width:240px;min-height:38px;font-size:16px;padding:5px 8px;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text)}
+select:focus{outline:3px solid rgba(37,99,235,.15);border-color:var(--accent)}.mark{font-size:.78rem;font-weight:700;line-height:1.1;margin-top:3px;min-height:1em}.ok{color:var(--ok)}.bad{color:var(--bad)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}button{min-height:46px;padding:10px 18px;border-radius:9px;font-size:16px;font-weight:700;cursor:pointer}.primary{border:0;background:var(--accent);color:white}.secondary{background:white;color:var(--text);border:1px solid var(--border)}
+.score{display:none;margin-top:15px;background:#eef2ff;border-radius:10px;padding:14px;font-weight:700}.footer{text-align:center;color:var(--muted);font-size:14px;margin-top:24px}@media(max-width:600px){.hero,.textcard{padding:16px}select{min-width:130px;max-width:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<h1>La famille d'hier à aujourd'hui</h1>
+<p class="sub">DELF B1 · Texte à trous interactif</p>
+<p><strong>Consigne :</strong> complète le texte en choisissant le mot ou l'expression qui convient. Puis clique sur <em>Vérifier mes réponses</em>.</p>
+<div class="progress-row"><span>Progression</span><span><strong id="done">0</strong>/18</span></div>
+<div class="bar"><div id="bar"></div></div>
+</section>
+<section class="textcard" id="text"></section>
+<div class="actions"><button class="primary" id="check" type="button">Vérifier mes réponses</button><button class="secondary" id="reset" type="button">Recommencer</button></div>
+<div class="score" id="score" aria-live="polite"></div>
+<div class="footer">Learninglobal · Learn. Learn again. Learn better.</div>
+</div>
+<script>
+const blanks=[
+{a:"famille traditionnelle",o:["famille traditionnelle","famille recomposée","famille monoparentale"]},
+{a:"famille nombreuse",o:["famille nombreuse","famille adoptive","famille homoparentale"]},
+{a:"famille monoparentale",o:["famille monoparentale","famille traditionnelle","famille adoptive"]},
+{a:"famille recomposée",o:["famille recomposée","famille nombreuse","famille homoparentale"]},
+{a:"beau-père",o:["beau-père","demi-frère","enfant unique"]},
+{a:"demi-frères et demi-sœurs",o:["demi-frères et demi-sœurs","grands-parents","enfants uniques"]},
+{a:"famille homoparentale",o:["famille homoparentale","famille monoparentale","famille nombreuse"]},
+{a:"famille adoptive",o:["famille adoptive","famille recomposée","famille traditionnelle"]},
+{a:"enfant unique",o:["enfant unique","beau-père","demi-frère"]},
+{a:"autonomie",o:["autonomie","rivalité","tradition"]},
+{a:"se disputer",o:["se disputer","s'entraider","transmettre"]},
+{a:"s'entendre bien",o:["s'entendre bien","se sentir seul","se moquer"]},
+{a:"garder le contact",o:["garder le contact","prendre soin","se réconcilier"]},
+{a:"transmettent",o:["transmettent","critiquent","interdisent"]},
+{a:"partagent les responsabilités",o:["partagent les responsabilités","gardent le contact","se disputent"]},
+{a:"s'entraident",o:["s'entraident","se séparent","se critiquent"]},
+{a:"confiance",o:["confiance","jalousie","distance"]},
+{a:"respect",o:["respect","rivalité","contrôle"]}
+];
+const paragraphs=[
+`Il y a quelques décennies, la {{0}} était le modèle le plus courant : deux parents vivaient avec leurs enfants, souvent après le mariage. Certaines familles étaient aussi des {{1}}, avec trois enfants ou plus.`,
+`Aujourd'hui, les situations familiales sont beaucoup plus variées. Dans une {{2}}, un seul parent vit avec son ou ses enfants. Après une séparation, une nouvelle union peut former une {{3}}. Un enfant peut alors vivre avec un {{4}} ou une belle-mère et avoir des {{5}}.`,
+`Il existe aussi des familles dans lesquelles les parents sont deux femmes ou deux hommes : on parle de {{6}}. Dans une {{7}}, les parents élèvent un enfant qu'ils ont accueilli légalement. Certaines personnes grandissent comme {{8}}, sans frère ni sœur.`,
+`Les relations entre parents et adolescents ont également évolué. Beaucoup de parents essaient davantage de communiquer avec leurs enfants et de leur donner progressivement plus d'{{9}}. Pourtant, les conflits existent toujours. Parents et adolescents peuvent {{10}} à propos des sorties, des études, des amis ou de l'utilisation du téléphone.`,
+`Entre frères et sœurs, les relations peuvent être très différentes. Certains {{11}} et passent beaucoup de temps ensemble, tandis que d'autres se disputent souvent. Avec le temps, beaucoup apprennent à mieux se comprendre et à se soutenir.`,
+`Les grands-parents jouent eux aussi un rôle important. Même lorsqu'ils vivent loin, les familles essaient de {{12}} grâce au téléphone ou aux appels vidéo. Les grands-parents {{13}} souvent les souvenirs, les traditions et les valeurs de la famille aux nouvelles générations.`,
+`Enfin, les rôles dans la famille changent. Dans de nombreux foyers, les adultes {{14}} davantage qu'autrefois, notamment pour les tâches ménagères et l'éducation des enfants. Les membres de la famille {{15}} aussi plus souvent lorsqu'une personne rencontre une difficulté.`,
+`Il n'existe donc pas un seul modèle de famille. Ce qui compte surtout, ce sont la communication, la {{16}}, le {{17}}, le partage des responsabilités et le temps passé ensemble.`
+];
+function makeSelect(i){const w=document.createElement('span');w.className='blank-wrap';const s=document.createElement('select');s.dataset.index=i;const p=document.createElement('option');p.value='';p.textContent='Choisis…';s.appendChild(p);blanks[i].o.forEach(x=>{const o=document.createElement('option');o.value=x;o.textContent=x;s.appendChild(o)});const m=document.createElement('span');m.className='mark';s.addEventListener('change',()=>{m.textContent='';m.className='mark';updateProgress()});w.append(s,m);return w}
+function render(){const c=document.getElementById('text');c.innerHTML='';paragraphs.forEach(raw=>{const p=document.createElement('p');raw.split(/(\{\{\d+\}\})/g).forEach(part=>{const m=part.match(/^\{\{(\d+)\}\}$/);if(m)p.appendChild(makeSelect(Number(m[1])));else p.appendChild(document.createTextNode(part))});c.appendChild(p)});document.getElementById('score').style.display='none';document.getElementById('score').textContent='';updateProgress()}
+function updateProgress(){const s=[...document.querySelectorAll('select')];const d=s.filter(x=>x.value).length;document.getElementById('done').textContent=d;document.getElementById('bar').style.width=(d/blanks.length*100)+'%'}
+document.getElementById('check').addEventListener('click',()=>{let correct=0;document.querySelectorAll('.blank-wrap').forEach(w=>{const s=w.querySelector('select'),m=w.querySelector('.mark'),i=Number(s.dataset.index);if(!s.value){m.textContent='Choisis une réponse';m.className='mark'}else if(s.value===blanks[i].a){correct++;m.textContent='✓';m.className='mark ok'}else{m.textContent='✗';m.className='mark bad'}});const sc=document.getElementById('score');sc.style.display='block';sc.textContent='Score : '+correct+' / '+blanks.length});
+document.getElementById('reset').addEventListener('click',render);render();
+</script>
+</body>
+</html>
