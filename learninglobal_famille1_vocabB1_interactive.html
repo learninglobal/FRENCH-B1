@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La famille d'hier à aujourd'hui – Vocabulaire DELF B1</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f6f7f9;color:#1f2937;margin:0}
+.wrap{max-width:950px;margin:auto;padding:24px 16px 40px}
+.hero,.item{background:#fff;border:1px solid #d1d5db;border-radius:14px}
+.hero{padding:22px;margin-bottom:18px}
+.item{padding:15px;margin-bottom:12px}
+h1{margin-top:0}
+.sub{color:#6b7280}
+select{width:100%;min-height:46px;font-size:16px;padding:9px;border:1px solid #d1d5db;border-radius:9px}
+.term{font-weight:700;margin-bottom:8px}
+.feedback{margin-top:8px;font-weight:700;min-height:20px}
+.ok{color:#15803d}.bad{color:#b91c1c}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+button{min-height:46px;padding:10px 18px;border-radius:9px;font-weight:700;font-size:16px;cursor:pointer}
+.primary{border:0;background:#2563eb;color:white}
+.secondary{background:white;border:1px solid #d1d5db}
+.progress{height:9px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+.progress div{height:100%;background:#2563eb;width:0}
+.score{display:none;margin-top:15px;padding:14px;background:#eef2ff;border-radius:10px;font-weight:700}
+.footer{text-align:center;color:#6b7280;font-size:14px;margin-top:24px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<h1>La famille d'hier à aujourd'hui</h1>
+<p class="sub">DELF B1 · Activité interactive de vocabulaire</p>
+<p><strong>Consigne :</strong> associe chaque mot ou expression à la bonne définition, puis clique sur <em>Vérifier mes réponses</em>.</p>
+<p>Progression : <strong><span id="p">0</span>/24</strong></p>
+<div class="progress"><div id="bar"></div></div>
+</section>
+<main id="quiz"></main>
+<div class="actions">
+<button class="primary" id="check">Vérifier mes réponses</button>
+<button class="secondary" id="reset">Recommencer</button>
+</div>
+<div class="score" id="score"></div>
+<div class="footer">Learninglobal · Learn. Learn again. Learn better.</div>
+</div>
+<script>
+const items=[
+["une famille traditionnelle / nucléaire","Une famille composée de deux parents et de leur(s) enfant(s)."],
+["une famille monoparentale","Une famille dans laquelle un seul parent vit avec son ou ses enfants."],
+["une famille recomposée","Une famille créée après une séparation, avec un nouveau partenaire et des enfants d'une relation précédente."],
+["une famille nombreuse","Une famille qui compte plusieurs enfants, souvent trois ou plus."],
+["une famille homoparentale","Une famille dans laquelle les parents sont deux femmes ou deux hommes."],
+["une famille adoptive","Une famille qui accueille légalement un enfant qui n'est pas né de ses parents."],
+["un enfant unique","Un enfant qui n'a ni frère ni sœur."],
+["un beau-père / une belle-mère","Le nouveau mari de sa mère ou la nouvelle femme de son père."],
+["un demi-frère / une demi-sœur","Un frère ou une sœur avec qui on partage seulement un parent."],
+["s'entendre bien","Avoir de bonnes relations avec une personne et peu de conflits avec elle."],
+["se disputer","Ne pas être d'accord et avoir parfois une discussion vive."],
+["être proche de quelqu'un","Avoir une relation affectueuse et importante avec quelqu'un."],
+["partager les responsabilités","Répartir les obligations et les décisions entre plusieurs membres de la famille."],
+["partager les tâches ménagères","Répartir le ménage, la cuisine, la vaisselle et les autres travaux de la maison."],
+["avoir de l'autonomie","Pouvoir prendre certaines décisions seul et devenir plus indépendant."],
+["faire confiance à quelqu'un","Croire qu'une personne est honnête et que l'on peut compter sur elle."],
+["transmettre","Faire passer des souvenirs, des connaissances ou des idées d'une génération à une autre."],
+["les traditions et les valeurs","Les habitudes familiales et les principes que l'on considère importants."],
+["garder le contact","Continuer à communiquer avec une personne même quand on ne la voit pas souvent."],
+["s'entraider","S'aider les uns les autres quand quelqu'un en a besoin."],
+["prendre soin de quelqu'un","S'occuper d'une personne et faire attention à son bien-être."],
+["soutenir quelqu'un","Aider et encourager quelqu'un, surtout dans un moment difficile."],
+["une génération","Un groupe de personnes qui ont à peu près le même âge et vivent à la même époque."],
+["élever un enfant","S'occuper d'un enfant pendant qu'il grandit et participer à son éducation."]
+];
+const defs=items.map(x=>x[1]);
+function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function progress(){let s=[...document.querySelectorAll('select')],d=s.filter(x=>x.value).length;document.getElementById('p').textContent=d;document.getElementById('bar').style.width=(d/items.length*100)+'%'}
+function render(){
+ const q=document.getElementById('quiz');q.innerHTML='';
+ items.forEach((it,i)=>{
+  let c=document.createElement('section');c.className='item';
+  let t=document.createElement('div');t.className='term';t.textContent=it[0];
+  let s=document.createElement('select');s.innerHTML='<option value="">Choisis une définition…</option>';
+  shuffle(defs).forEach(d=>{let o=document.createElement('option');o.value=d;o.textContent=d;s.appendChild(o)});
+  let f=document.createElement('div');f.className='feedback';
+  s.addEventListener('change',()=>{f.textContent='';f.className='feedback';progress()});
+  c.append(t,s,f);q.appendChild(c);
+ });
+ document.getElementById('score').style.display='none';progress();
+}
+document.getElementById('check').addEventListener('click',()=>{
+ let correct=0;
+ [...document.querySelectorAll('.item')].forEach((c,i)=>{
+  let s=c.querySelector('select'),f=c.querySelector('.feedback');
+  if(!s.value){f.textContent='Choisis une réponse.';f.className='feedback'}
+  else if(s.value===items[i][1]){correct++;f.textContent='✓ Correct !';f.className='feedback ok'}
+  else{f.textContent='✗ Essaie encore.';f.className='feedback bad'}
+ });
+ let sc=document.getElementById('score');sc.style.display='block';sc.textContent='Score : '+correct+' / '+items.length;
+});
+document.getElementById('reset').addEventListener('click',render);
+render();
+</script>
+</body></html>
