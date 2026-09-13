@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Forum DELF B1 – Donner des conseils</title>
+<style>
+:root{--orange:#e8871e;--ink:#263238;--muted:#67727c;--line:#dfe3e7;--soft:#fff8ef;--panel:#fff;--drop:#f4f6f7}
+*{box-sizing:border-box}
+body{margin:0;background:#f6f7f5;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+.wrap{max-width:1050px;margin:auto;padding:22px 14px 48px}
+.hero,.forum-post{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:16px}
+.tag{display:inline-block;background:var(--orange);color:#fff;border-radius:99px;padding:5px 10px;font-size:13px;font-weight:700}
+h1{font-size:28px;line-height:1.2;margin:10px 0 7px}
+.intro{color:var(--muted);margin:0}
+.post-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:8px}
+.post-title{font-size:21px;font-weight:800}
+.author{font-size:14px;color:var(--muted)}
+.post-text{background:#f8f9f9;border-left:4px solid var(--orange);padding:13px 14px;border-radius:10px;font-size:16px}
+.builder-title{font-weight:800;margin:18px 0 8px}
+.columns{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.bank,.answer{border:1px solid var(--line);border-radius:12px;padding:12px;min-width:0}
+.bank h3,.answer h3{font-size:15px;margin:0 0 8px}
+.group{margin-bottom:12px}
+.group-label{font-size:12px;font-weight:800;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{border:1px solid #d8c3a3;background:var(--soft);color:var(--ink);border-radius:10px;padding:8px 10px;font-size:14px;cursor:grab;user-select:none}
+.chip:focus{outline:3px solid rgba(232,135,30,.25)}
+.dropzone{min-height:150px;border:2px dashed #c7cdd2;border-radius:10px;padding:10px;background:var(--drop)}
+.dropzone.active{border-color:var(--orange);background:var(--soft)}
+.dropzone .chip{display:block;margin:0 0 7px;cursor:grab;background:#fff}
+.placeholder{color:var(--muted);font-size:14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+button{border:0;border-radius:9px;padding:10px 13px;font:inherit;font-weight:700;background:var(--orange);color:white;cursor:pointer}
+button.secondary{background:#e8ebee;color:var(--ink)}
+.preview{margin-top:10px;padding:11px 12px;border-radius:10px;background:#fbfbfb;border:1px solid var(--line);min-height:54px}
+.preview strong{display:block;margin-bottom:4px}
+.hint{font-size:13px;color:var(--muted);margin-top:7px}
+.footer{text-align:center;color:var(--muted);font-size:13px;margin-top:24px}
+@media(max-width:760px){.columns{grid-template-columns:1fr}h1{font-size:23px}.hero,.forum-post{padding:15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<section class="hero">
+<span class="tag">DELF B1 · The Learninglobal Project</span>
+<h1>Forum – Donner des conseils</h1>
+<p class="intro">Lis chaque message, puis construis une réponse personnalisée. Fais glisser les propositions dans ta réponse, ou clique simplement dessus si tu préfères.</p>
+</section>
+<div id="app"></div>
+<div class="footer">The Learninglobal Project · Learn. Learn again. Learn better.</div>
+</div>
+
+<script>
+const posts=[{"name": "Lucas, 15 ans", "title": "Conflit avec mes parents", "text": "Depuis quelques semaines, je me dispute souvent avec mes parents. Ils veulent toujours savoir où je suis et avec qui, mais je trouve ça trop contrôlant. Parfois, je me sens étouffé et je ne sais pas comment leur expliquer que j'ai besoin d'un peu plus de liberté. Ils pensent que je ne suis pas responsable, mais je veux juste qu'ils me fassent confiance. Est-ce que quelqu'un a déjà vécu ça ? Comment avez-vous réussi à parler calmement avec vos parents pour améliorer la situation ?", "groups": [["Réagir", ["Je comprends ta situation.", "Je comprends que tu aies besoin de plus de liberté.", "Ce n’est pas facile de se sentir trop contrôlé."]], ["Conseiller", ["À ta place, je parlerais calmement avec tes parents.", "Tu devrais leur expliquer ce que tu ressens.", "Je te conseille de leur montrer que tu es responsable.", "Pourquoi ne pas leur demander de te faire davantage confiance ?"]], ["Justifier", ["parce que le dialogue est important.", "pour éviter les disputes.", "afin qu’ils comprennent ton besoin d’autonomie.", "pour trouver un compromis."]], ["Encourager", ["Avec le temps, ils te feront peut-être davantage confiance.", "Vous pourrez sûrement trouver un compromis.", "Bon courage !"]]]}, {"name": "Léa, 13 ans", "title": "Malentendu avec une amie", "text": "J'ai eu un gros malentendu avec ma meilleure amie. On s'est disputées à cause d'un message mal interprété. Depuis, elle ne me parle presque plus et ça me rend triste. Je ne sais pas comment réparer notre amitié. J'aimerais lui expliquer ce que je ressens, mais j'ai peur qu'elle ne veuille pas écouter. Est-ce que vous avez des conseils pour réconcilier une amitié après un conflit ?", "groups": [["Réagir", ["Je comprends que tu sois triste.", "C’est dommage de perdre une amitié à cause d’un malentendu.", "Les malentendus arrivent souvent entre amis."]], ["Conseiller", ["Tu pourrais lui parler directement.", "Tu devrais peut-être lui expliquer ce que tu ressens.", "Je te conseille de t’excuser si tu l’as blessée.", "Si j’étais toi, je lui proposerais de vous voir."]], ["Justifier", ["pour éviter un nouveau malentendu.", "parce qu’il est important de communiquer.", "afin de rétablir la confiance.", "pour vous réconcilier."]], ["Encourager", ["Si votre amitié est forte, elle t’écoutera sûrement.", "Laisse-lui aussi un peu de temps.", "J’espère que vous allez vous réconcilier."]]]}, {"name": "Chloé, 12 ans", "title": "Jalouse de ma sœur", "text": "Je suis souvent jalouse de ma sœur parce qu'elle reçoit plus d'attention de mes parents que moi. Ils passent beaucoup de temps avec elle, surtout pour ses activités scolaires et sportives. Moi, je me sens un peu seule et moins importante. Je ne veux pas que ça gâche notre relation, mais c'est difficile de ne pas me comparer. Comment faire pour ne plus être jalouse et mieux m'entendre avec elle ?", "groups": [["Réagir", ["Je comprends que tu te sentes moins importante.", "C’est normal d’être parfois jalouse.", "Essaie de ne pas culpabiliser."]], ["Conseiller", ["À mon avis, tu devrais parler de tes sentiments à tes parents.", "Essaie d’éviter de te comparer à ta sœur.", "Tu pourrais passer plus de temps avec elle.", "Je te conseille de proposer une activité à faire ensemble."]], ["Justifier", ["pour mieux vous entendre.", "afin que tes parents comprennent ce que tu ressens.", "parce que ta sœur n’est peut-être pas responsable de la situation.", "pour améliorer votre relation."]], ["Encourager", ["Vous pourriez devenir plus proches.", "Tes parents ne se rendent peut-être pas compte de ce que tu ressens.", "La jalousie peut diminuer avec le dialogue."]]]}, {"name": "Mathis, 16 ans", "title": "Pression pour sortir avec des amis", "text": "Mes amis veulent toujours que je sorte avec eux le week-end, mais parfois je préfère rester à la maison ou faire mes devoirs. Ils disent que je suis ennuyeux et que je ne suis pas cool. Je me sens un peu obligé de faire ce qu'ils veulent pour ne pas être exclu. Comment puis-je leur expliquer que j'ai besoin de temps pour moi sans perdre leur amitié ?", "groups": [["Réagir", ["Je comprends que tu aies peur d’être exclu.", "Ce n’est pas agréable de se sentir obligé.", "Un vrai ami doit respecter tes choix."]], ["Conseiller", ["Tu ne devrais pas accepter uniquement pour leur faire plaisir.", "Tu pourrais leur expliquer que tu as besoin de temps pour toi.", "À ta place, j’apprendrais à dire non.", "Le mieux serait de proposer de sortir une autre fois."]], ["Justifier", ["parce qu’une vraie amitié repose sur le respect.", "pour ne pas te sentir sous pression.", "parce que tu as le droit de faire tes propres choix.", "afin de garder un équilibre."]], ["Encourager", ["S’ils sont de vrais amis, ils comprendront.", "Tu ne dois pas changer pour être accepté.", "Tu peux rester leur ami sans toujours faire comme eux."]]]}, {"name": "Emma, 14 ans", "title": "Désaccord sur le temps passé avec mes amis", "text": "Mes parents trouvent que je passe trop de temps avec mes amis et pas assez avec eux. Ils veulent que je sois plus présente à la maison, surtout le soir. Mais mes amis sont très importants pour moi et j'ai besoin de leur compagnie. Je ne sais pas comment trouver un équilibre entre ma famille et mes amis. Avez-vous des idées pour mieux gérer le temps entre famille et amis sans créer de conflits ?", "groups": [["Réagir", ["Je comprends ton problème.", "Ce n’est pas toujours facile de trouver un équilibre.", "La famille et les amis sont tous les deux importants."]], ["Conseiller", ["Tu pourrais organiser ton temps.", "Pourquoi ne pas réserver certains soirs à ta famille ?", "Je te conseille de discuter avec tes parents.", "Le mieux serait de trouver un compromis."]], ["Justifier", ["pour éviter les conflits.", "afin de garder du temps pour tout le monde.", "pour montrer à tes parents qu’ils sont importants pour toi.", "sans perdre le contact avec tes amis."]], ["Encourager", ["Avec un peu d’organisation, tu peux faire les deux.", "Tes parents accepteront peut-être plus facilement tes sorties.", "Vous pouvez sûrement trouver un compromis."]]]}];
+const app=document.getElementById('app');
+
+function makeChip(text, postIndex){
+  const b=document.createElement('button');
+  b.type='button'; b.className='chip'; b.textContent=text; b.draggable=true;
+  b.dataset.text=text; b.dataset.post=postIndex;
+  b.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',text);e.dataTransfer.effectAllowed='copy';});
+  return b;
+}
+
+posts.forEach((p,pi)=>{
+  const sec=document.createElement('section'); sec.className='forum-post';
+  sec.innerHTML=`<div class="post-head"><div><div class="post-title">${p.title}</div><div class="author">${p.name}</div></div></div>
+  <div class="post-text">${p.text}</div>
+  <div class="builder-title">Construis ta réponse</div>
+  <div class="columns">
+    <div class="bank"><h3>Sentence builders</h3><div class="groups"></div><div class="hint">Astuce : choisis 1 idée de plusieurs catégories. Tu peux aussi réorganiser ta réponse.</div></div>
+    <div class="answer"><h3>Ma réponse</h3><div class="dropzone" tabindex="0"><div class="placeholder">Dépose ici tes phrases…</div></div>
+    <div class="actions"><button class="publish">Publier ma réponse</button><button class="secondary reset">Recommencer</button></div>
+    <div class="preview" aria-live="polite"><strong>Aperçu du commentaire</strong><span>Ta réponse apparaîtra ici.</span></div></div>
+  </div>`;
+  app.appendChild(sec);
+
+  const groups=sec.querySelector('.groups'), zone=sec.querySelector('.dropzone'), preview=sec.querySelector('.preview span');
+
+  p.groups.forEach(([label,items])=>{
+    const g=document.createElement('div'); g.className='group';
+    g.innerHTML=`<div class="group-label">${label}</div><div class="chips"></div>`;
+    const box=g.querySelector('.chips');
+    items.forEach(t=>{
+      const chip=makeChip(t,pi);
+      chip.addEventListener('click',()=>addToZone(t));
+      box.appendChild(chip);
+    });
+    groups.appendChild(g);
+  });
+
+  function addToZone(text){
+    const ph=zone.querySelector('.placeholder'); if(ph)ph.remove();
+    const c=makeChip(text,pi); c.draggable=true;
+    c.title='Cliquer pour retirer';
+    c.addEventListener('click',()=>{c.remove(); restorePlaceholder();});
+    zone.appendChild(c);
+  }
+  function restorePlaceholder(){
+    if(!zone.querySelector('.chip')){
+      const ph=document.createElement('div'); ph.className='placeholder'; ph.textContent='Dépose ici tes phrases…'; zone.appendChild(ph);
+    }
+  }
+  zone.addEventListener('dragover',e=>{e.preventDefault();zone.classList.add('active');});
+  zone.addEventListener('dragleave',()=>zone.classList.remove('active'));
+  zone.addEventListener('drop',e=>{e.preventDefault();zone.classList.remove('active');const t=e.dataTransfer.getData('text/plain');if(t)addToZone(t);});
+  sec.querySelector('.publish').addEventListener('click',()=>{
+    const parts=[...zone.querySelectorAll('.chip')].map(x=>x.dataset.text);
+    preview.textContent=parts.length?parts.join(' '):'Choisis d’abord quelques phrases pour construire ta réponse.';
+  });
+  sec.querySelector('.reset').addEventListener('click',()=>{
+    zone.innerHTML='<div class="placeholder">Dépose ici tes phrases…</div>';
+    preview.textContent='Ta réponse apparaîtra ici.';
+  });
+});
+</script>
+</body>
+</html>
