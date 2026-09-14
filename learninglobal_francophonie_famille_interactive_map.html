@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La famille dans la Francophonie — Carte interactive</title>
+<style>
+:root{--o:#e8871e;--ol:#f6c88a;--ink:#263238;--mut:#68737d;--line:#d8dde2;--sea:#eaf1f5}
+*{box-sizing:border-box}body{margin:0;background:#f5f7f6;color:var(--ink);font-family:Arial,sans-serif}.wrap{max-width:1180px;margin:auto;padding:18px}
+header,.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px}header{margin-bottom:14px}h1{margin:5px 0 6px;font-size:28px}.sub,.note{color:var(--mut);line-height:1.5}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;font-size:14px}.key{display:flex;gap:6px;align-items:center}.sw{width:16px;height:16px;border:1px solid #aaa;border-radius:4px}
+.layout{display:grid;grid-template-columns:1.6fr .8fr;gap:14px}#mapWrap{background:var(--sea);border-radius:12px;overflow:hidden}svg{width:100%;height:auto;display:block}
+.country{fill:#dfe4e7;stroke:#fff;stroke-width:.45}.oif{fill:var(--ol)}.study{fill:var(--o);cursor:pointer}.marker{fill:white;stroke:var(--o);stroke-width:2.5;cursor:pointer}.dot{fill:var(--o);pointer-events:none}.label{font-size:11px;font-weight:700;fill:var(--ink);paint-order:stroke;stroke:white;stroke-width:3px;pointer-events:none}
+.country-label{font-size:11px;font-weight:700;fill:#263238;paint-order:stroke;stroke:#fff;stroke-width:3.5px;stroke-linejoin:round;pointer-events:none}
+.oif-label{font-size:8.5px;font-weight:600;fill:#5d666d;paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+.leader{stroke:#7b858c;stroke-width:.7;fill:none;pointer-events:none}
+.map-tools{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 10px}
+.map-tools button{border:1px solid #d4d9dd;background:white;border-radius:9px;padding:8px 11px;font-weight:700}
+.map-tools button.active{background:#fff1df;border-color:#e8871e;color:#8a4a00}
+.panel h2{margin-top:0;font-size:20px}.panel p{line-height:1.55}.question{background:#fff8ef;border-left:4px solid var(--o);padding:11px;border-radius:9px}.quick{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}button{border:1px solid #d9c19e;background:#fff8ef;border-radius:999px;padding:8px 11px;cursor:pointer}
+@media(max-width:820px){.layout{grid-template-columns:1fr}h1{font-size:23px}}
+</style></head>
+<body><div class="wrap">
+<header><div style="font-size:13px;font-weight:700;color:#a55c00">DELF B1 · The Learninglobal Project</div><h1>🌍 La famille dans la Francophonie</h1>
+<p class="sub">Repère d’abord les pays grâce à leur nom, puis clique sur les pays en orange foncé — ou sur les points pour le Québec, La Réunion et Tahiti — pour découvrir une courte information sur la famille.</p>
+<div class="legend"><div class="key"><span class="sw" style="background:#f6c88a"></span> États membres de l’OIF</div><div class="key"><span class="sw" style="background:#e8871e"></span> Pays étudiés</div><div class="key"><span class="sw" style="background:white;border:2px solid #e8871e"></span> Territoires / régions étudiés</div></div></header>
+<div class="layout"><section class="card">
+    <div class="map-tools">
+      <button type="button" id="studiedLabels" class="active">Noms des pays étudiés</button>
+      <button type="button" id="allLabels">Tous les noms francophones</button>
+    </div>
+    <div id="mapWrap"><svg id="map" viewBox="0 0 960 540" aria-label="Carte interactive du monde francophone"></svg></div></section>
+<aside class="card panel"><h2 id="title">Choisis un pays</h2><p id="text">Clique sur un pays en orange foncé ou choisis un pays dans la liste ci-dessous pour découvrir la famille dans cette partie du monde francophone.</p>
+<div class="question"><strong>Et chez toi ?</strong><br>Quelles ressemblances et quelles différences vois-tu avec la famille dans ton pays ou ta culture ?</div>
+<div class="quick" id="quick"></div><p class="note">Il n’existe pas un seul modèle de famille dans un pays. Les situations peuvent être différentes selon les personnes, les régions, les générations et les modes de vie.</p></aside></div>
+<p class="note" style="text-align:center">The Learninglobal Project · Learn. Learn again. Learn better.</p></div>
+<script type="module">
+const info={"France": ["🇫🇷 France — Des familles de plus en plus diverses", "En France, il existe aujourd’hui différentes formes de famille. À côté de la famille traditionnelle, on trouve aussi des familles monoparentales, recomposées, homoparentales ou adoptives. Les séparations et les nouvelles unions ont changé la vie de nombreuses familles. La famille française d’aujourd’hui est donc plus diverse qu’autrefois."], "Canada": ["🇨🇦 Québec — Plusieurs façons de former une famille", "Au Québec, toutes les familles ne suivent pas le même modèle. Certaines sont formées d’un couple marié, d’autres d’un couple en union libre, et il existe aussi de nombreuses familles monoparentales. Les enfants peuvent donc grandir dans des situations familiales très différentes."], "Belgium": ["🇧🇪 Belgique — Une grande diversité de ménages", "En Belgique, les formes de famille sont diverses. On trouve des couples avec ou sans enfants et des familles monoparentales. Les réalités familiales peuvent aussi être différentes selon les régions du pays."], "Luxembourg": ["🇱🇺 Luxembourg — Des familles dans une société internationale", "Au Luxembourg, beaucoup de familles vivent dans un environnement multilingue et multiculturel. Les situations familiales y sont variées et certains membres vivent parfois dans un autre pays. Les nouvelles technologies aident alors à garder le contact."], "Switzerland": ["🇨🇭 Suisse romande — Trouver un équilibre", "En Suisse romande, la vie familiale doit souvent s’organiser autour du travail, de l’école et de la garde des enfants. Les parents cherchent un équilibre entre leur vie professionnelle et leurs responsabilités familiales. Les familles peuvent aussi prendre des formes différentes."], "Morocco": ["🇲🇦 Maroc — Une famille qui se transforme", "Au Maroc, la famille continue à jouer un rôle important dans la solidarité et la transmission des valeurs. Mais les familles sont aujourd’hui plus petites qu’autrefois et les modes de vie évoluent. Malgré ces changements, les membres de la famille continuent souvent à s’entraider et à se soutenir."], "Tunisia": ["🇹🇳 Tunisie — Des familles plus petites qu’autrefois", "En Tunisie, la taille des ménages a beaucoup diminué au fil des décennies. Les familles sont donc généralement moins nombreuses qu’autrefois. Cette évolution montre que les modes de vie changent."], "Senegal": ["🇸🇳 Sénégal — Des ménages souvent nombreux", "Au Sénégal, les ménages sont souvent plus grands qu’en Europe. Plusieurs membres d’une famille élargie peuvent partager le même logement et différentes générations peuvent vivre ensemble. Cependant, la situation varie beaucoup entre Dakar et les autres régions."], "Côte d'Ivoire": ["🇨🇮 Côte d’Ivoire — La famille dans une société qui s’urbanise", "En Côte d’Ivoire, les ménages restent relativement nombreux, mais le pays s’urbanise rapidement. Les réalités familiales peuvent donc être différentes entre les grandes villes et les autres régions. La famille reste un réseau important pour beaucoup de personnes."], "Benin": ["🇧🇯 Bénin — Des ménages aux formes variées", "Au Bénin, les ménages peuvent comprendre les parents et leurs enfants, mais aussi d’autres membres de la famille élargie. Les relations entre les générations peuvent donc occuper une place importante dans la vie quotidienne."], "Haiti": ["🇭🇹 Haïti — Une famille qui dépasse les frontières", "En Haïti, la migration a créé de nombreuses familles dont les membres vivent dans différents pays. Malgré la distance, ils essaient de garder le contact, de s’entraider et de soutenir leur famille."], "Lebanon": ["🇱🇧 Liban — Des familles entre le pays et la diaspora", "Au Liban, l’émigration fait partie de l’histoire de nombreuses familles. Certains membres vivent au Liban tandis que d’autres vivent à l’étranger. La famille peut donc fonctionner au-delà des frontières."]};
+const markers=[["Québec", 46.8139, -71.208, "🇨🇦 Québec — Plusieurs façons de former une famille", "Au Québec, toutes les familles ne suivent pas le même modèle. Certaines sont formées d’un couple marié, d’autres d’un couple en union libre, et il existe aussi de nombreuses familles monoparentales."], ["La Réunion", -21.115, 55.536, "🇷🇪 La Réunion — Une autre réalité familiale française", "La Réunion fait partie de la France, mais son histoire et sa population sont différentes de celles de la France métropolitaine. Les formes de famille y sont diverses et les relations entre générations restent importantes."], ["Tahiti", -17.5516, -149.5585, "🇵🇫 Tahiti — La famille au cœur de la vie polynésienne", "À Tahiti et plus largement en Polynésie française, les ménages sont en moyenne plus grands qu’en France métropolitaine. Plusieurs membres d’une famille élargie ou plusieurs générations peuvent parfois vivre ensemble."]];
+const studyIds={"250": "France", "124": "Canada", "056": "Belgium", "442": "Luxembourg", "756": "Switzerland", "504": "Morocco", "788": "Tunisia", "686": "Senegal", "384": "C\u00f4te d'Ivoire", "204": "Benin", "332": "Haiti", "422": "Lebanon"};
+const displayNames={
+"008":"Albanie","020":"Andorre","051":"Arménie","056":"Belgique","204":"Bénin","100":"Bulgarie","108":"Burundi","132":"Cap-Vert",
+"116":"Cambodge","120":"Cameroun","124":"Canada","140":"Rép. centrafricaine","196":"Chypre","174":"Comores","178":"Congo",
+"180":"R.D. Congo","384":"Côte d’Ivoire","262":"Djibouti","212":"Dominique","818":"Égypte","250":"France","266":"Gabon",
+"288":"Ghana","300":"Grèce","324":"Guinée","624":"Guinée-Bissau","226":"Guinée équatoriale","332":"Haïti","418":"Laos","422":"Liban",
+"442":"Luxembourg","807":"Macédoine du Nord","450":"Madagascar","504":"Maroc","480":"Maurice","478":"Mauritanie","498":"Moldavie",
+"492":"Monaco","642":"Roumanie","646":"Rwanda","662":"Sainte-Lucie","678":"Sao Tomé-et-Principe","686":"Sénégal","690":"Seychelles","756":"Suisse",
+"148":"Tchad","768":"Togo","788":"Tunisie","548":"Vanuatu","704":"Vietnam"
+};
+const labelOffsets={
+"056":[-18,-10],"442":[20,10],"756":[20,16],"250":[0,0],"124":[0,-4],"504":[0,2],"788":[18,0],
+"686":[-6,9],"384":[8,9],"204":[20,13],"332":[14,-4],"422":[23,2]
+};
+const oifIds=new Set(["008", "020", "051", "056", "204", "100", "108", "132", "116", "120", "124", "140", "196", "174", "178", "180", "384", "262", "212", "818", "250", "266", "288", "300", "324", "624", "226", "332", "418", "422", "442", "807", "450", "504", "480", "478", "498", "492", "642", "646", "662", "678", "686", "690", "756", "148", "768", "788", "548", "704"]);
+const titleEl=document.getElementById('title'), textEl=document.getElementById('text');
+const show=(t,x)=>{titleEl.textContent=t;textEl.textContent=x};
+const quick=document.getElementById('quick');
+for (const [name,d] of Object.entries(info)){const b=document.createElement('button');b.type='button';b.textContent=name;b.onclick=()=>show(d[0],d[1]);quick.appendChild(b)}
+for (const m of markers){const b=document.createElement('button');b.type='button';b.textContent=m[0];b.onclick=()=>show(m[3],m[4]);quick.appendChild(b)}
+try{
+ const [d3,topo,world]=await Promise.all([
+  import('https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm'),
+  import('https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/+esm'),
+  import('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json/+esm')]);
+ const svg=d3.select('#map'), data=world.default, features=topo.feature(data,data.objects.countries).features;
+ const projection=d3.geoNaturalEarth1().fitExtent([[10,10],[950,530]],{type:'Sphere'}), path=d3.geoPath(projection);
+ svg.append('path').datum({type:'Sphere'}).attr('d',path).attr('fill','#eaf1f5');
+ svg.append('g').selectAll('path').data(features).join('path').attr('d',path)
+ .attr('class',d=>{const id=String(d.id).padStart(3,'0');return 'country '+(studyIds[id]?'study':oifIds.has(id)?'oif':'')})
+ .attr('tabindex',d=>studyIds[String(d.id).padStart(3,'0')]?0:null)
+ .attr('role',d=>studyIds[String(d.id).padStart(3,'0')]?'button':null)
+ .on('click',(e,d)=>{const n=studyIds[String(d.id).padStart(3,'0')];if(n)show(info[n][0],info[n][1])})
+ .on('keydown',(e,d)=>{if(e.key==='Enter'||e.key===' '){const n=studyIds[String(d.id).padStart(3,'0')];if(n){e.preventDefault();show(info[n][0],info[n][1])}}});
+
+ const labelsG=svg.append('g').attr('class','country-label-layer');
+ function drawCountryLabels(showAll=false){
+   labelsG.selectAll('*').remove();
+   features.forEach(d=>{
+     const id=String(d.id).padStart(3,'0');
+     if(!studyIds[id] && !(showAll && oifIds.has(id))) return;
+     const name=displayNames[id] || studyIds[id];
+     if(!name) return;
+     let c=path.centroid(d), x=c[0], y=c[1];
+     if(!Number.isFinite(x)||!Number.isFinite(y)) return;
+     const off=labelOffsets[id] || [0,0], tx=x+off[0], ty=y+off[1];
+     if(off[0]||off[1]){
+       labelsG.append('path').attr('class','leader').attr('d',`M${x},${y} L${tx},${ty}`);
+     }
+     labelsG.append('text')
+       .attr('x',tx).attr('y',ty)
+       .attr('text-anchor',off[0]>5?'start':off[0]<-5?'end':'middle')
+       .attr('dominant-baseline','middle')
+       .attr('class',studyIds[id]?'country-label':'oif-label')
+       .text(name);
+   });
+ }
+ drawCountryLabels(false);
+ document.getElementById('studiedLabels').addEventListener('click',()=>{
+   drawCountryLabels(false);
+   document.getElementById('studiedLabels').classList.add('active');
+   document.getElementById('allLabels').classList.remove('active');
+ });
+ document.getElementById('allLabels').addEventListener('click',()=>{
+   drawCountryLabels(true);
+   document.getElementById('allLabels').classList.add('active');
+   document.getElementById('studiedLabels').classList.remove('active');
+ });
+
+ const mg=svg.append('g');
+ for(const m of markers){const p=projection([m[2],m[1]]);if(!p)continue;const g=mg.append('g').attr('transform',`translate(${p[0]},${p[1]})`).attr('tabindex',0).attr('role','button').style('cursor','pointer').on('click',()=>show(m[3],m[4])).on('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(m[3],m[4])}});g.append('circle').attr('r',8).attr('class','marker');g.append('circle').attr('r',3).attr('class','dot');g.append('text').attr('x',10).attr('y',4).attr('class','label').text(m[0])}
+}catch(err){document.getElementById('mapWrap').innerHTML='<div style="padding:24px;color:#68737d">La carte n’a pas pu se charger. Utilise les boutons à droite.</div>'}
+</script></body></html>
