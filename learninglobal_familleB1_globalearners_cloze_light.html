@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>La famille – GlobaLearners | DELF B1</title>
+<style>
+:root{--orange:#e8871e;--ink:#25313c;--muted:#6a7480;--line:#dde2e7;--soft:#fff8ef;--good:#e9f7ee;--bad:#fff0f0}
+*{box-sizing:border-box}body{margin:0;background:#f6f7f5;color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.62}
+.wrap{max-width:980px;margin:auto;padding:24px 14px 44px}.hero,.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:15px}
+.tag{display:inline-block;background:var(--orange);color:#fff;border-radius:99px;padding:5px 10px;font-size:13px;font-weight:700}
+h1{font-size:28px;line-height:1.2;margin:10px 0 6px}h2{margin:0;font-size:22px}.intro,.place{color:var(--muted)}
+.head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.score{background:var(--soft);padding:6px 10px;border-radius:9px;font-weight:700;white-space:nowrap}
+.toggle{background:none;color:#9a5b10;padding:3px 0;text-decoration:underline;margin:8px 0;border:0;font-weight:700;cursor:pointer}
+.bank{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:var(--soft);border-radius:10px;margin-bottom:10px}
+.pill{background:#fff;border:1px solid #e3c69f;border-radius:99px;padding:3px 8px;font-size:13px}
+.text{font-size:17px}
+select{font:inherit;font-size:16px;padding:3px 7px;border:1.5px solid #aeb7c0;border-radius:7px;background:white;max-width:220px;margin:2px 1px}
+select.correct{background:var(--good);border-color:#4d9c63}select.wrong{background:var(--bad);border-color:#d46a6a}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}button{font:inherit;font-weight:700;border:0;border-radius:9px;padding:10px 14px;background:var(--orange);color:white;cursor:pointer}
+button.secondary{background:#e8ebee;color:var(--ink)}.feedback{font-weight:700;margin-top:8px;min-height:1.4em}
+.good{color:#24713b}.bad{color:#a23c3c}.footer{text-align:center;color:var(--muted);font-size:13px;margin-top:24px}
+@media(max-width:620px){.hero,.card{padding:15px}h1{font-size:23px}.text{font-size:16px}}
+</style></head>
+<body><div class="wrap">
+<section class="hero">
+<span class="tag">DELF B1 · The Learninglobal Project</span>
+<h1>GlobaLearners dans le monde francophone – La famille</h1>
+<p class="intro">Écoute la vidéo et complète les mots-clés. Chaque témoignage contient seulement quelques éléments à retrouver pour que tu puisses rester concentré sur l’écoute.</p>
+</section>
+
+<section class="card" data-i="0">
+  <div class="head">
+    <div><h2>Amélie</h2><div class="place">Montréal, Canada</div></div>
+    <div class="score" id="score-0">0 / 4</div>
+  </div>
+  <button class="toggle" type="button">Afficher les mots-clés</button>
+  <div class="bank" hidden><span class="pill">se séparer</span><span class="pill">beau-père</span><span class="pill">famille recomposée</span><span class="pill">nous entendons bien</span></div>
+  <p class="text">Je m&#x27;appelle Amélie et je viens de Montréal. Quand j&#x27;étais petite, mes parents ont décidé de <select class="gap" data-answer="se séparer"><option value="">— choisir —</option></select>. Leur séparation a été difficile au début, mais ils ont toujours pensé à mon bonheur. Quelques années plus tard, ils ont divorcé. Aujourd&#x27;hui, je vis une semaine chez ma mère et une semaine chez mon père. Ma mère ne s&#x27;est pas remariée, mais mon père s&#x27;est remarié il y a trois ans. Grâce à ce remariage, j&#x27;ai maintenant un <select class="gap" data-answer="beau-père"><option value="">— choisir —</option></select>, une belle-mère, un demi-frère et une demi-sœur. Nous formons une <select class="gap" data-answer="famille recomposée"><option value="">— choisir —</option></select>. Au début, tout était nouveau, mais aujourd&#x27;hui, nous <select class="gap" data-answer="nous entendons bien"><option value="">— choisir —</option></select>. Je pense qu&#x27;une famille n&#x27;est pas seulement une question de lien de sang. L&#x27;important, c&#x27;est de vivre ensemble dans le respect et la confiance.</p>
+  <div class="actions">
+    <button class="check" type="button">Vérifier</button>
+    <button class="reset secondary" type="button">Recommencer</button>
+  </div>
+  <div class="feedback" id="fb-0"></div>
+</section>
+
+<section class="card" data-i="1">
+  <div class="head">
+    <div><h2>Karim</h2><div class="place">Rabat, Maroc</div></div>
+    <div class="score" id="score-1">0 / 4</div>
+  </div>
+  <button class="toggle" type="button">Afficher les mots-clés</button>
+  <div class="bank" hidden><span class="pill">famille nombreuse</span><span class="pill">grands-parents</span><span class="pill">transmettent</span><span class="pill">gâter</span></div>
+  <p class="text">Je m&#x27;appelle Karim et je suis né à Rabat. Je viens d&#x27;une <select class="gap" data-answer="famille nombreuse"><option value="">— choisir —</option></select>. Nous sommes six enfants, trois garçons et trois filles. Mes <select class="gap" data-answer="grands-parents"><option value="">— choisir —</option></select> habitent près de chez nous. Depuis ma naissance, ils ont toujours fait partie de notre vie. Quand mes parents travaillent, ils s&#x27;occupent souvent de mes petits frères et de mes petites sœurs. Chez nous, les repas sont très importants. Toute la famille se retrouve autour de la table pour discuter, rire et partager les nouvelles de la journée. Mes grands-parents nous racontent souvent des souvenirs de leur jeunesse. Ils nous <select class="gap" data-answer="transmettent"><option value="">— choisir —</option></select> des valeurs importantes comme le respect, la solidarité et la générosité. Ils aiment aussi nous <select class="gap" data-answer="gâter"><option value="">— choisir —</option></select> avec des pâtisseries. Je pense que cette éducation m&#x27;a appris à être responsable et à aider les autres.</p>
+  <div class="actions">
+    <button class="check" type="button">Vérifier</button>
+    <button class="reset secondary" type="button">Recommencer</button>
+  </div>
+  <div class="feedback" id="fb-1"></div>
+</section>
+
+<section class="card" data-i="2">
+  <div class="head">
+    <div><h2>Maeva</h2><div class="place">La Réunion</div></div>
+    <div class="score" id="score-2">0 / 4</div>
+  </div>
+  <button class="toggle" type="button">Afficher les mots-clés</button>
+  <div class="bank" hidden><span class="pill">grands-parents</span><span class="pill">élevée</span><span class="pill">générations</span><span class="pill">transmettent</span></div>
+  <p class="text">Bonjour, je m&#x27;appelle Maeva et j&#x27;habite à la Réunion. Quand j&#x27;étais bébé, mes parents travaillaient beaucoup. Ce sont surtout mes <select class="gap" data-answer="grands-parents"><option value="">— choisir —</option></select> qui se sont occupés de moi. Ils m&#x27;ont <select class="gap" data-answer="élevée"><option value="">— choisir —</option></select> avec beaucoup d&#x27;amour. Aujourd&#x27;hui encore, nous habitons tous dans la même maison : mes parents, mes grands-parents, mon petit frère et moi. Trois <select class="gap" data-answer="générations"><option value="">— choisir —</option></select> vivent ensemble. Mes grands-parents sont des seniors, mais ils sont très actifs. Ils nous gardent parfois, nous racontent leurs souvenirs et nous <select class="gap" data-answer="transmettent"><option value="">— choisir —</option></select> leurs connaissances. Ma grand-mère aime beaucoup nous chouchouter et préparer de bons repas. Je trouve que cette vie en famille est une richesse. Les plus jeunes apprennent beaucoup des personnes âgées et les personnes âgées ne se sentent jamais seules.</p>
+  <div class="actions">
+    <button class="check" type="button">Vérifier</button>
+    <button class="reset secondary" type="button">Recommencer</button>
+  </div>
+  <div class="feedback" id="fb-2"></div>
+</section>
+
+<section class="card" data-i="3">
+  <div class="head">
+    <div><h2>Lucas</h2><div class="place">Bruxelles, Belgique</div></div>
+    <div class="score" id="score-3">0 / 4</div>
+  </div>
+  <button class="toggle" type="button">Afficher les mots-clés</button>
+  <div class="bank" hidden><span class="pill">famille traditionnelle</span><span class="pill">famille nombreuse</span><span class="pill">benjamin</span><span class="pill">nous nous ressemblons</span></div>
+  <p class="text">Bonjour, je m&#x27;appelle Lucas et je vais me présenter. Je suis belge et j&#x27;habite à Bruxelles. Je suis né dans une <select class="gap" data-answer="famille traditionnelle"><option value="">— choisir —</option></select>. Mes parents sont mariés depuis presque 30 ans. Nous sommes une <select class="gap" data-answer="famille nombreuse"><option value="">— choisir —</option></select>. J&#x27;ai deux grandes sœurs et un petit frère. Mon frère est le <select class="gap" data-answer="benjamin"><option value="">— choisir —</option></select> de la famille. Nous ne sommes pas jumeaux, mais beaucoup de personnes disent que mon frère et moi <select class="gap" data-answer="nous nous ressemblons"><option value="">— choisir —</option></select>. Nous avons les mêmes yeux et le même sourire, mais nous n&#x27;avons pas les mêmes goûts. Moi, j&#x27;adore le sport tandis que lui préfère les jeux vidéo. Quand nous étions enfants, nous partagions souvent la même chambre. Bien sûr, nous nous disputions parfois, mais nous nous entendions très bien la plupart du temps. Aujourd&#x27;hui, je suis adulte et je pense que mes parents ont donné une très bonne éducation à leurs enfants. Ils nous ont appris à respecter les autres, à nous aider et à rester unis.</p>
+  <div class="actions">
+    <button class="check" type="button">Vérifier</button>
+    <button class="reset secondary" type="button">Recommencer</button>
+  </div>
+  <div class="feedback" id="fb-3"></div>
+</section>
+
+<section class="card" data-i="4">
+  <div class="head">
+    <div><h2>Emma</h2><div class="place">Lyon, France</div></div>
+    <div class="score" id="score-4">0 / 4</div>
+  </div>
+  <button class="toggle" type="button">Afficher les mots-clés</button>
+  <div class="bank" hidden><span class="pill">élever les enfants</span><span class="pill">indépendante</span><span class="pill">tâches ménagères</span><span class="pill">responsabilités</span></div>
+  <p class="text">Je m&#x27;appelle Emma et je viens de Lyon. Mes parents me disent souvent qu&#x27;auparavant, les hommes et les femmes avaient un rôle bien défini dans la famille. Mon grand-père travaillait toute la journée et ma grand-mère restait à la maison pour <select class="gap" data-answer="élever les enfants"><option value="">— choisir —</option></select>. Aujourd&#x27;hui, les temps ont changé. Ma mère est très <select class="gap" data-answer="indépendante"><option value="">— choisir —</option></select>. Elle travaille comme architecte et elle gagne sa vie. Mon père participe aussi beaucoup à la vie familiale. Il prépare les repas, fait les courses et participe aux <select class="gap" data-answer="tâches ménagères"><option value="">— choisir —</option></select>. Il consacre aussi beaucoup de temps à notre famille. Je trouve que c&#x27;est une bonne évolution. À mon avis, les <select class="gap" data-answer="responsabilités"><option value="">— choisir —</option></select> doivent être partagées entre tous les membres de la famille.</p>
+  <div class="actions">
+    <button class="check" type="button">Vérifier</button>
+    <button class="reset secondary" type="button">Recommencer</button>
+  </div>
+  <div class="feedback" id="fb-4"></div>
+</section>
+
+<section class="card" data-i="5">
+  <div class="head">
+    <div><h2>Ibrahima</h2><div class="place">Dakar, Sénégal</div></div>
+    <div class="score" id="score-5">0 / 6</div>
+  </div>
+  <button class="toggle" type="button">Afficher les mots-clés</button>
+  <div class="bank" hidden><span class="pill">affectueux</span><span class="pill">à l&#x27;écoute</span><span class="pill">soutiennent</span><span class="pill">fais confiance</span><span class="pill">autonomie</span><span class="pill">respect mutuel</span></div>
+  <p class="text">Bonjour, je m&#x27;appelle Ibrahima, j&#x27;ai 17 ans et j&#x27;habite à Dakar au Sénégal. Je suis encore adolescent, donc je suis aussi mineur. Dans quelques années, je deviendrai adulte, mais pour le moment je profite de ma vie de lycéen. J&#x27;ai de la chance car mes parents sont très <select class="gap" data-answer="affectueux"><option value="">— choisir —</option></select> et toujours <select class="gap" data-answer="à l&#x27;écoute"><option value="">— choisir —</option></select>. Ils m&#x27;encouragent à travailler sérieusement et me <select class="gap" data-answer="soutiennent"><option value="">— choisir —</option></select> dans tous mes projets. Quand j&#x27;ai un problème, nous prenons le temps de discuter ensemble. Ils essaient de me comprendre et de me donner de bons conseils. Je leur <select class="gap" data-answer="fais confiance"><option value="">— choisir —</option></select> et eux aussi me font confiance. Bien sûr, mes parents s&#x27;inquiètent parfois pour moi. Ils veulent me protéger, surtout quand je rentre tard après un entraînement de football ou une sortie avec mes amis. Ils me rappellent qu&#x27;il faut être prudent, mais ils respectent aussi mon <select class="gap" data-answer="autonomie"><option value="">— choisir —</option></select>. Je sais qu&#x27;ils sont toujours présents pour moi. À la maison, mes parents nous transmettent des valeurs importantes comme le respect, la solidarité et le travail. Ils essaient toujours de donner l&#x27;exemple. Mon père participe aux tâches ménagères et ma mère travaille aussi. Je trouve que c&#x27;est normal que chacun aide à la maison. Moi aussi, j&#x27;essaie de me comporter correctement. Je respecte mes parents. Je leur demande souvent leur avis afin de prendre une décision importante et je suis leurs conseils. Je partage avec eux mes projets, mes inquiétudes et parfois même mes secrets. Je leur obéis et j&#x27;essaie de ne jamais dépasser les limites qu&#x27;ils me fixent. Je me sens libre, motivé et bien dans ma peau. À mon avis, une bonne relation entre les parents et les adolescents repose sur la confiance, le dialogue et le <select class="gap" data-answer="respect mutuel"><option value="">— choisir —</option></select>.</p>
+  <div class="actions">
+    <button class="check" type="button">Vérifier</button>
+    <button class="reset secondary" type="button">Recommencer</button>
+  </div>
+  <div class="feedback" id="fb-5"></div>
+</section>
+
+<div class="footer">The Learninglobal Project · Learn. Learn again. Learn better.</div>
+</div>
+<script>
+const answerSets=[["se séparer", "beau-père", "famille recomposée", "nous entendons bien"], ["famille nombreuse", "grands-parents", "transmettent", "gâter"], ["grands-parents", "élevée", "générations", "transmettent"], ["famille traditionnelle", "famille nombreuse", "benjamin", "nous nous ressemblons"], ["élever les enfants", "indépendante", "tâches ménagères", "responsabilités"], ["affectueux", "à l'écoute", "soutiennent", "fais confiance", "autonomie", "respect mutuel"]];
+document.querySelectorAll('.card').forEach(card=>{
+ const i=+card.dataset.i;
+ const opts=[...new Set(answerSets[i])].sort((a,b)=>a.localeCompare(b,'fr'));
+ card.querySelectorAll('select.gap').forEach(sel=>opts.forEach(v=>sel.add(new Option(v,v))));
+});
+document.querySelectorAll('.toggle').forEach(btn=>btn.addEventListener('click',()=>{
+ const bank=btn.nextElementSibling, h=bank.hasAttribute('hidden');
+ if(h) bank.removeAttribute('hidden'); else bank.setAttribute('hidden','');
+ btn.textContent=h?'Masquer les mots-clés':'Afficher les mots-clés';
+}));
+document.querySelectorAll('.check').forEach(btn=>btn.addEventListener('click',()=>{
+ const card=btn.closest('.card'),i=+card.dataset.i,sels=[...card.querySelectorAll('.gap')];let ok=0;
+ sels.forEach(s=>{s.classList.remove('correct','wrong');if(s.value===s.dataset.answer){s.classList.add('correct');ok++;}else if(s.value)s.classList.add('wrong');});
+ document.getElementById('score-'+i).textContent=ok+' / '+sels.length;
+ const fb=document.getElementById('fb-'+i);
+ if(ok===sels.length){fb.textContent='✓ Excellent ! Tout est correct.';fb.className='feedback good';}
+ else{fb.textContent='Tu as '+ok+' réponse'+(ok>1?'s':'')+' correcte'+(ok>1?'s':'')+' sur '+sels.length+'.';fb.className='feedback bad';}
+}));
+document.querySelectorAll('.reset').forEach(btn=>btn.addEventListener('click',()=>{
+ const card=btn.closest('.card'),i=+card.dataset.i;
+ card.querySelectorAll('.gap').forEach(s=>{s.selectedIndex=0;s.classList.remove('correct','wrong')});
+ document.getElementById('score-'+i).textContent='0 / '+card.querySelectorAll('.gap').length;
+ document.getElementById('fb-'+i).textContent='';
+}));
+</script></body></html>
