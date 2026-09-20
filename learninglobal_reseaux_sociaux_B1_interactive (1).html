@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learninglobal B1 – Réseaux sociaux et communication en ligne</title>
+<style>
+:root{--ink:#23314d;--muted:#647087;--line:#dfe4ec;--soft:#f6f8fb;--accent:#e77732;--blue:#40557a;--ok:#e9f6ed;--bad:#fff0ee}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.45}
+main{max-width:980px;margin:auto;padding:24px 16px 48px}
+header{text-align:center;margin-bottom:22px}.kicker{color:var(--accent);font-weight:800;letter-spacing:.08em}
+h1{font-size:clamp(1.55rem,4vw,2.2rem);margin:.25rem 0}.sub{color:var(--muted)}
+.progress{height:10px;background:#edf0f4;border-radius:999px;overflow:hidden;margin:18px 0 6px}.bar{height:100%;width:0;background:var(--accent);transition:.3s}
+.score{text-align:right;color:var(--muted);font-size:.92rem}
+section{border:1px solid var(--line);border-radius:16px;padding:20px;margin:18px 0;background:#fff}
+h2{font-size:1.2rem;color:var(--blue);margin-top:0}.help{color:var(--muted);font-size:.95rem}
+.q{padding:14px 0;border-top:1px solid var(--line)}.q:first-of-type{border-top:0}
+.q p{margin:.1rem 0 .55rem;font-weight:650}
+.options{display:grid;gap:8px}.options label{display:flex;gap:9px;align-items:flex-start;padding:9px 11px;border:1px solid var(--line);border-radius:10px;cursor:pointer}
+select{font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;max-width:100%}
+.match{display:grid;grid-template-columns:minmax(180px,1fr) minmax(210px,1.4fr);gap:10px;align-items:center;margin:8px 0}
+.builder{display:grid;gap:8px;margin:10px 0}.builder-row{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+.feedback{min-height:1.2em;margin-top:6px;font-size:.92rem;font-weight:650}.good{color:#287443}.wrong{color:#a13b31}
+.correctbox{background:var(--ok)!important;border-color:#9bcaaa!important}.wrongbox{background:var(--bad)!important;border-color:#e2a59e!important}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+button{font:inherit;font-weight:750;border:0;border-radius:10px;padding:11px 16px;cursor:pointer;background:var(--blue);color:white}
+button.secondary{background:#eef1f6;color:var(--ink)}
+.result{display:none;margin-top:18px;padding:16px;border-radius:12px;background:var(--soft);font-weight:700}
+@media(max-width:620px){.match{grid-template-columns:1fr}.match select{width:100%}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="kicker">UN MONDE CONNECTÉ · DELF B1</div>
+<h1>Réseaux sociaux et communication en ligne</h1>
+<div class="sub">Défi vocabulaire – Comprendre, choisir et réutiliser les mots-clés du thème.</div>
+</header>
+
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="score" id="score">Score : 0 / 25</div>
+
+<section id="s1">
+<h2>Défi 1 – Associez les mots à leur définition</h2>
+<p class="help">Choisissez la bonne définition pour chaque mot ou expression.</p>
+<div id="matching"></div>
+</section>
+
+<section id="s2">
+<h2>Défi 2 – Choisissez le mot juste</h2>
+<p class="help">Complétez chaque phrase avec l'expression qui convient.</p>
+<div id="mcq"></div>
+</section>
+
+<section id="s3">
+<h2>Défi 3 – Bons réflexes numériques ou comportement à risque ?</h2>
+<p class="help">Classez chaque comportement.</p>
+<div id="behaviour"></div>
+</section>
+
+<section id="s4">
+<h2>Défi 4 – Réseaux sociaux : avantages ou problèmes ?</h2>
+<p class="help">Identifiez l'idée exprimée dans chaque phrase.</p>
+<div id="ideas"></div>
+</section>
+
+<section id="s5">
+<h2>Défi 5 – Construisez la phrase</h2>
+<p class="help">Choisissez les éléments dans le bon ordre pour reconstruire des phrases utiles au niveau B1.</p>
+<div id="builders"></div>
+</section>
+
+<div class="actions">
+<button id="check">Vérifier mes réponses</button>
+<button class="secondary" id="reset">Recommencer</button>
+</div>
+<div class="result" id="result"></div>
+</main>
+
+<script>
+const matchDefs=[
+["rester en contact avec","continuer à communiquer avec une personne"],
+["un faux profil","un compte qui ne représente pas une personne réelle"],
+["vérifier la source","contrôler d'où vient une information"],
+["limiter son temps d'écran","réduire le temps passé devant les écrans"],
+["protéger ses données personnelles","éviter de rendre publiques des informations privées"]
+];
+const allDefs=matchDefs.map(x=>x[1]);
+const matching=document.getElementById("matching");
+matchDefs.forEach((x,i)=>{
+ matching.insertAdjacentHTML("beforeend",`<div class="match"><strong>${i+1}. ${x[0]}</strong><select data-answer="${x[1]}"><option value="">Choisissez…</option>${allDefs.map(d=>`<option>${d}</option>`).join("")}</select></div>`);
+});
+
+const mcqs=[
+["Avant de partager une information, il faut…",["vérifier la source","créer un faux profil","se moquer des autres"],0],
+["Grâce aux réseaux sociaux, on peut facilement…",["rester en contact avec ses amis","devenir une fake news","protéger un inconnu"],0],
+["Une personne qui consulte son téléphone sans arrêt peut devenir…",["dépendante des écrans","une source fiable","hors ligne"],0],
+["Pour préserver sa vie privée, il faut…",["protéger ses données personnelles","publier son mot de passe","parler à tous les inconnus"],0],
+["Quand on regarde uniquement la vie idéale montrée par les autres, on peut…",["douter de soi","vérifier la source","limiter les notifications des autres"],0]
+];
+function renderRadio(target,data,prefix){
+ const el=document.getElementById(target);
+ data.forEach((q,i)=>{
+  el.insertAdjacentHTML("beforeend",`<div class="q" data-correct="${q[2]}"><p>${i+1}. ${q[0]}</p><div class="options">${q[1].map((o,j)=>`<label><input type="radio" name="${prefix}${i}" value="${j}"> <span>${o}</span></label>`).join("")}</div><div class="feedback"></div></div>`);
+ });
+}
+renderRadio("mcq",mcqs,"m");
+
+const behaviours=[
+["Je vérifie une information avant de la partager.",["Bon réflexe","Comportement à risque"],0],
+["Je publie l'adresse et le numéro de téléphone d'un ami.",["Bon réflexe","Comportement à risque"],1],
+["Je respecte les autres même quand je ne suis pas d'accord.",["Bon réflexe","Comportement à risque"],0],
+["Je crois une information seulement parce qu'elle a beaucoup de likes.",["Bon réflexe","Comportement à risque"],1],
+["Je limite mon temps d'écran pour garder du temps pour d'autres activités.",["Bon réflexe","Comportement à risque"],0]
+];
+renderRadio("behaviour",behaviours,"b");
+
+const ideas=[
+["Les réseaux permettent de communiquer avec des proches qui habitent loin.",["Un avantage","Un problème"],0],
+["Certaines personnes passent trop de temps en ligne.",["Un avantage","Un problème"],1],
+["On peut découvrir des contenus utiles pour apprendre.",["Un avantage","Un problème"],0],
+["Les faux profils et les fake news peuvent tromper les utilisateurs.",["Un avantage","Un problème"],1],
+["Les réseaux peuvent créer des conflits dans certaines familles.",["Un avantage","Un problème"],1]
+];
+renderRadio("ideas",ideas,"i");
+
+const builders=[
+{parts:[
+["Les réseaux sociaux","Les données personnelles","Les fake news"],
+["permettent de","empêchent de","refusent de"],
+["rester en contact avec ses amis.","publier son mot de passe.","devenir un faux profil."]
+],ans:[0,0,0]},
+{parts:[
+["Avant de partager une information,","Après avoir créé un faux profil,","Pour passer plus de temps en ligne,"],
+["il faut","il est inutile de","on doit toujours"],
+["vérifier la source.","croire tout ce qu'on lit.","publier ses données personnelles."]
+],ans:[0,0,0]},
+{parts:[
+["Pour trouver un bon équilibre,","Pour devenir dépendant des écrans,","Pour recevoir plus de fake news,"],
+["on peut","il faut absolument","on ne doit jamais"],
+["limiter son temps d'écran.","se connecter toute la nuit.","partager sans réfléchir."]
+],ans:[0,0,0]},
+{parts:[
+["Quand on se compare constamment aux autres,","Quand on vérifie plusieurs sources,","Quand on protège sa vie privée,"],
+["on peut","on doit forcément","on ne peut jamais"],
+["douter de soi.","créer un faux profil.","perdre son mot de passe."]
+],ans:[0,0,0]},
+{parts:[
+["Une utilisation responsable du numérique","Un faux profil","Une information non vérifiée"],
+["consiste notamment à","signifie toujours","oblige à"],
+["respecter les autres en ligne.","se moquer des autres.","croire toutes les publications."]
+],ans:[0,0,0]}
+];
+const buildersEl=document.getElementById("builders");
+builders.forEach((b,i)=>{
+ buildersEl.insertAdjacentHTML("beforeend",`<div class="q builder" data-ans="${b.ans.join(",")}"><p>${i+1}. Phrase ${i+1}</p><div class="builder-row">${b.parts.map((opts,k)=>`<select><option value="">Choisissez…</option>${opts.map((o,j)=>`<option value="${j}">${o}</option>`).join("")}</select>`).join("")}</div><div class="feedback"></div></div>`);
+});
+
+function check(){
+ let score=0,total=25;
+ document.querySelectorAll("#matching select").forEach(s=>{
+  s.classList.remove("correctbox","wrongbox");
+  if(s.value===s.dataset.answer){score++;s.classList.add("correctbox")} else if(s.value){s.classList.add("wrongbox")}
+ });
+ document.querySelectorAll("#mcq .q,#behaviour .q,#ideas .q").forEach(q=>{
+  q.querySelectorAll("label").forEach(l=>l.classList.remove("correctbox","wrongbox"));
+  const picked=q.querySelector("input:checked"), correct=Number(q.dataset.correct), fb=q.querySelector(".feedback");
+  if(picked && Number(picked.value)===correct){score++;picked.closest("label").classList.add("correctbox");fb.textContent="Bien vu !";fb.className="feedback good"}
+  else {if(picked)picked.closest("label").classList.add("wrongbox");fb.textContent="Regardez à nouveau le sens de la phrase.";fb.className="feedback wrong"}
+ });
+ document.querySelectorAll("#builders .q").forEach(q=>{
+  const ans=q.dataset.ans.split(",").map(Number), sels=[...q.querySelectorAll("select")], fb=q.querySelector(".feedback");
+  const ok=sels.every((s,j)=>Number(s.value)===ans[j] && s.value!=="");
+  sels.forEach((s,j)=>{s.classList.remove("correctbox","wrongbox"); if(s.value!=="")s.classList.add(Number(s.value)===ans[j]?"correctbox":"wrongbox")});
+  if(ok){score++;fb.textContent="Phrase correcte !";fb.className="feedback good"}else{fb.textContent="Réessayez en vérifiant le sens et la structure.";fb.className="feedback wrong"}
+ });
+ document.getElementById("score").textContent=`Score : ${score} / ${total}`;
+ document.getElementById("bar").style.width=(score/total*100)+"%";
+ const r=document.getElementById("result"); r.style.display="block";
+ r.textContent=score===total?"Excellent ! Vous maîtrisez le vocabulaire essentiel de cette séquence.":score>=20?"Très bien ! Revoyez seulement les éléments qui restent difficiles.":"Continuez : relisez le vocabulaire de la séquence puis recommencez le défi.";
+}
+function resetAll(){
+ document.querySelectorAll("input").forEach(x=>x.checked=false);
+ document.querySelectorAll("select").forEach(x=>x.selectedIndex=0);
+ document.querySelectorAll(".correctbox,.wrongbox").forEach(x=>x.classList.remove("correctbox","wrongbox"));
+ document.querySelectorAll(".feedback").forEach(x=>{x.textContent="";x.className="feedback"});
+ document.getElementById("score").textContent="Score : 0 / 25";document.getElementById("bar").style.width="0";
+ document.getElementById("result").style.display="none";window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("check").addEventListener("click",check);
+document.getElementById("reset").addEventListener("click",resetAll);
+</script>
+</body>
+</html>
