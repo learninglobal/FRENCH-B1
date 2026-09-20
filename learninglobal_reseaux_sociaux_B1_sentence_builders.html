@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learninglobal B1 – Sentence Builders : Réseaux sociaux</title>
+<style>
+:root{--navy:#28468f;--ink:#25324a;--muted:#667085;--line:#d9dfeb;--soft:#f5f7fb;--accent:#e77732;--good:#eaf7ee;--bad:#fff0ee}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#fff;color:var(--ink);line-height:1.45}
+main{max-width:1050px;margin:auto;padding:24px 16px 50px}
+header{text-align:center}.tag{font-weight:800;color:var(--accent);letter-spacing:.08em}
+h1{margin:.25rem 0;color:var(--navy);font-size:clamp(1.55rem,4vw,2.25rem)}
+.lead{color:var(--muted);max-width:820px;margin:0 auto 18px}
+.progress{height:10px;background:#edf0f5;border-radius:999px;overflow:hidden}.bar{height:100%;width:0;background:var(--accent);transition:.25s}
+.score{text-align:right;color:var(--muted);font-size:.92rem;margin-top:5px}
+section{border:1px solid var(--line);border-radius:16px;margin:18px 0;padding:20px}
+h2{color:var(--navy);font-size:1.22rem;margin:0 0 4px}.hint{color:var(--muted);margin:0 0 15px}
+.q{border-top:1px solid var(--line);padding:15px 0}.q:first-of-type{border-top:0}
+.qtitle{font-weight:750;margin-bottom:8px}
+.row{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+select{font:inherit;padding:8px 9px;border:1px solid var(--line);border-radius:9px;max-width:100%;background:white}
+.feedback{min-height:1.2em;margin-top:7px;font-size:.92rem;font-weight:700}.good{color:#287443}.wrong{color:#a13b31}
+.correct{background:var(--good);border-color:#9cc9a9}.incorrect{background:var(--bad);border-color:#dfa49c}
+.model{margin-top:7px;color:var(--muted);font-size:.91rem}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+button{border:0;border-radius:10px;padding:11px 16px;font:inherit;font-weight:750;cursor:pointer;background:var(--navy);color:white}
+button.secondary{background:#edf1f7;color:var(--ink)}
+.result{display:none;margin-top:18px;padding:15px;border-radius:12px;background:var(--soft);font-weight:750}
+@media(max-width:620px){select{width:100%}.row{display:grid}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="tag">DELF B1 · UN MONDE CONNECTÉ</div>
+<h1>Sentence Builders – Réseaux sociaux & communication en ligne</h1>
+<p class="lead">Construisez des phrases complètes pour décrire vos habitudes numériques, présenter des avantages, nuancer avec des risques et proposer des solutions.</p>
+</header>
+<div class="progress"><div id="bar" class="bar"></div></div>
+<div id="score" class="score">Score : 0 / 20</div>
+
+<section id="habits">
+<h2>Défi 1 – Décrire ses habitudes numériques</h2>
+<p class="hint">Construisez une phrase logique : sujet/fréquence → action → contenu/média → objectif/précision.</p>
+</section>
+
+<section id="benefits">
+<h2>Défi 2 – Exprimer les avantages</h2>
+<p class="hint">Construisez un argument positif complet sur la communication en ligne.</p>
+</section>
+
+<section id="risks">
+<h2>Défi 3 – Nuancer : risques et inconvénients</h2>
+<p class="hint">Reliez une nuance, un problème, sa cause et sa conséquence.</p>
+</section>
+
+<section id="solutions">
+<h2>Défi 4 – Donner des conseils et proposer des solutions</h2>
+<p class="hint">Construisez un conseil complet : objectif → action → modalité → résultat visé.</p>
+</section>
+
+<div class="actions">
+<button id="check">Vérifier mes phrases</button>
+<button id="reset" class="secondary">Recommencer</button>
+</div>
+<div id="result" class="result"></div>
+</main>
+
+<script>
+const sets = {
+habits: [
+ {p:[
+ ["Aujourd'hui, je","Chaque jour, beaucoup de jeunes","En général, les utilisateurs"],
+ ["me connecte à Internet","se connectent à Internet","publient des photos"],
+ ["sur mon smartphone.","sur leur smartphone.","sur les réseaux sociaux."],
+ ["pour rester en contact.","pour suivre l'actualité.","pendant leur temps libre."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Chaque jour, beaucoup de jeunes","Pendant mon temps libre, je","Certains utilisateurs"],
+ ["se connectent à Internet","partage des vidéos","suivent des influenceurs"],
+ ["sur leur smartphone.","sur mon compte personnel.","des créateurs de contenu"],
+ ["pour suivre l'actualité.","pour me divertir.","qui ont les mêmes intérêts."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Pendant mon temps libre, je","De nos jours, on","En général, les utilisateurs"],
+ ["partage des vidéos","créent un profil","envoient des messages"],
+ ["sur mon compte personnel.","dans des groupes en ligne.","à leurs amis et leur famille"],
+ ["pour me divertir.","pour donner leur avis.","même à distance."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["En général, les utilisateurs","Aujourd'hui, je","Certains utilisateurs"],
+ ["envoient des messages","me connecte à Internet","commentent des publications"],
+ ["à leurs amis et leur famille","sur mon smartphone.","des sujets passionnants"],
+ ["même à distance.","pour rester en contact.","pour échanger des idées."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Certains utilisateurs","Pendant mon temps libre, je","Chaque jour, beaucoup de jeunes"],
+ ["commentent des publications","partage des vidéos","se connectent à Internet"],
+ ["des sujets passionnants","sur mon compte personnel.","sur leur smartphone."],
+ ["pour échanger des idées.","pour me divertir.","pour suivre l'actualité."]
+ ],a:[0,0,0,0]}
+],
+benefits: [
+ {p:[
+ ["L'un des principaux avantages est","Le problème principal est","Cependant, il existe"],
+ ["la possibilité de rester en contact","la dépendance aux écrans","des faux profils"],
+ ["avec ses proches à distance,","à cause de l'hyperconnexion,","qui circulent en ligne,"],
+ ["ce qui rapproche les gens.","ce qui génère du stress.","ce qui met en danger notre sécurité."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Grâce aux réseaux sociaux, il est facile de","Il faut se méfier de","Néanmoins, certaines personnes"],
+ ["rencontrer des personnes","partager ses mots de passe","passent trop de temps en ligne"],
+ ["qui partagent la même passion,","avec des inconnus,","en consultant leur téléphone trop souvent,"],
+ ["ce qui enrichit notre vie sociale.","ce qui protège notre vie privée.","ce qui nuit au sommeil."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Le numérique permet de","Pour éviter les fake news, il faut","Pour protéger sa santé mentale, il vaut mieux"],
+ ["s'informer et apprendre","publier sans réfléchir","se comparer aux autres"],
+ ["de nouvelles connaissances,","des données personnelles,","en cherchant la popularité,"],
+ ["ce qui développe la curiosité.","ce qui rapproche les gens.","ce qui fait douter de soi-même."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Un autre aspect positif est que l'on peut","Pourtant, le problème est que l'on peut","Il faut aussi se méfier des"],
+ ["découvrir des contenus intéressants","devenir dépendant des écrans","fausses informations"],
+ ["pendant son temps libre,","à cause de l'hyperconnexion,","qui circulent très vite en ligne,"],
+ ["ce qui peut aider à apprendre.","ce qui enrichit notre vie sociale.","ce qui rapproche les gens."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Grâce aux tutoriels en ligne, on peut","En outre, un grand danger concerne","Néanmoins, certaines personnes"],
+ ["apprendre de façon autonome","les risques pour la vie privée","subissent la pression des likes"],
+ ["pour réussir ses projets,","si on partage des données personnelles,","en cherchant la popularité,"],
+ ["sans dépendre toujours d'un professeur.","ce qui rapproche les gens.","ce qui développe la curiosité."]
+ ],a:[0,0,0,0]}
+],
+risks: [
+ {p:[
+ ["Cependant, il existe des risques : certaines personnes","Grâce aux réseaux sociaux, certaines personnes","Pour être un utilisateur responsable, certaines personnes"],
+ ["passent trop de temps en ligne","restent en contact","vérifient les sources"],
+ ["en consultant leur téléphone trop souvent,","avec leurs proches à distance,","en comparant plusieurs médias,"],
+ ["ce qui nuit aux études et au sommeil.","ce qui enrichit leur vie sociale.","afin de s'informer correctement."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Pourtant, le problème est que certaines personnes","L'un des avantages est que certaines personnes","Avant de publier, certaines personnes"],
+ ["deviennent dépendantes des écrans","apprennent de façon autonome","demandent l'accord des autres"],
+ ["à cause de l'hyperconnexion,","grâce aux tutoriels,","avant de partager une photo,"],
+ ["ce qui peut créer des conflits familiaux.","ce qui développe la curiosité.","afin de respecter leur vie privée."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Néanmoins, certaines personnes","Grâce au numérique, certaines personnes","Pour éviter les fake news, certaines personnes"],
+ ["se comparent toujours aux autres","échangent avec le monde entier","vérifient la source"],
+ ["en voyant les photos parfaites des gens,","dans des communautés en ligne,","en cherchant des médias fiables,"],
+ ["ce qui peut faire douter de soi-même.","ce qui enrichit leur vie sociale.","afin de s'informer correctement."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Par ailleurs, on trouve parfois","Un autre aspect positif concerne","Pour garder une vie équilibrée, on trouve"],
+ ["de fausses informations","des contenus intéressants","un bon équilibre"],
+ ["qui circulent très vite en ligne,","pour apprendre de nouvelles choses,","entre la vie en ligne et hors ligne,"],
+ ["ce qui peut nous induire en erreur.","ce qui met en danger notre sécurité.","ce qui génère du stress."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Il faut aussi se méfier des","Grâce aux réseaux sociaux, on peut profiter des","Pour protéger sa santé mentale, il faut profiter des"],
+ ["faux profils et des arnaques","communautés en ligne","activités physiques"],
+ ["qui cherchent à tromper les gens,","qui partagent les mêmes intérêts,","sans parler avec des inconnus,"],
+ ["ce qui peut mettre notre sécurité en danger.","ce qui fait douter de soi-même.","ce qui nuit aux études."]
+ ],a:[0,0,0,0]}
+],
+solutions: [
+ {p:[
+ ["Pour être un utilisateur responsable, il faut","Pour devenir plus populaire, il faut","Pour passer plus de temps en ligne, il faut"],
+ ["développer son esprit critique","partager ses mots de passe","croire toutes les publications"],
+ ["en comparant plusieurs sources","avec tous ses abonnés","sans vérifier la source"],
+ ["pour ne pas être trompé.","pour recevoir plus de likes.","pour rester toujours connecté."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Pour éviter les fake news, il est essentiel de","Pour créer un faux profil, il est essentiel de","Pour se comparer aux autres, il est essentiel de"],
+ ["vérifier la source et l'auteur","publier de fausses informations","regarder des photos parfaites"],
+ ["en cherchant des médias fiables","sans réfléchir","pendant des heures"],
+ ["afin de s'informer correctement.","afin de devenir dépendant.","afin de douter de soi."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Avant de publier une photo, on doit","Avant de croire une fake news, on doit","Avant de se connecter, on doit"],
+ ["demander l'accord de la personne","partager immédiatement l'information","donner son mot de passe"],
+ ["avant de la partager en ligne","sans vérifier la source","à des inconnus"],
+ ["pour respecter sa vie privée.","pour suivre l'actualité.","pour rester en contact."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Afin de garder une vie équilibrée, il convient de","Afin de devenir dépendant, il convient de","Afin de recevoir plus de notifications, il convient de"],
+ ["limiter son temps d'écran","rester connecté toute la nuit","publier sans arrêt"],
+ ["entre la vie en ligne et hors ligne","sans faire d'activités physiques","sur tous les réseaux"],
+ ["pour préserver son sommeil.","pour protéger sa santé mentale.","pour développer son esprit critique."]
+ ],a:[0,0,0,0]},
+ {p:[
+ ["Pour protéger sa santé mentale, il vaut mieux","Pour recevoir plus de likes, il vaut mieux","Pour créer des conflits, il vaut mieux"],
+ ["trouver un bon équilibre","se comparer constamment aux autres","répondre agressivement"],
+ ["en faisant aussi des activités hors ligne","en cherchant la popularité","sans respecter les autres"],
+ ["pour rester en bonne santé.","pour préserver son sommeil.","pour éviter les mauvais réflexes."]
+ ],a:[0,0,0,0]}
+]
+};
+
+function addSet(id, arr){
+ const sec=document.getElementById(id);
+ arr.forEach((q,i)=>{
+   const div=document.createElement("div"); div.className="q"; div.dataset.ans=q.a.join(",");
+   div.innerHTML=`<div class="qtitle">${i+1}. Construisez la phrase.</div><div class="row">${
+     q.p.map(opts=>`<select><option value="">Choisissez…</option>${opts.map((o,j)=>`<option value="${j}">${o}</option>`).join("")}</select>`).join("")
+   }</div><div class="feedback"></div>`;
+   sec.appendChild(div);
+ });
+}
+Object.entries(sets).forEach(([id,arr])=>addSet(id,arr));
+
+function check(){
+ let score=0,total=20;
+ document.querySelectorAll(".q").forEach(q=>{
+   const ans=q.dataset.ans.split(",").map(Number), sels=[...q.querySelectorAll("select")], fb=q.querySelector(".feedback");
+   const ok=sels.every((s,j)=>s.value!=="" && Number(s.value)===ans[j]);
+   sels.forEach((s,j)=>{
+     s.classList.remove("correct","incorrect");
+     if(s.value!=="") s.classList.add(Number(s.value)===ans[j]?"correct":"incorrect");
+   });
+   if(ok){score++;fb.textContent="Phrase correcte !";fb.className="feedback good"}
+   else{fb.textContent="Réessayez : vérifiez la logique, la grammaire et le sens de la phrase.";fb.className="feedback wrong"}
+ });
+ document.getElementById("score").textContent=`Score : ${score} / ${total}`;
+ document.getElementById("bar").style.width=(score/total*100)+"%";
+ const r=document.getElementById("result"); r.style.display="block";
+ r.textContent=score===20?"Excellent ! Vous savez construire des phrases utiles pour argumenter sur les réseaux sociaux.":score>=16?"Très bien ! Revoyez les quelques structures qui restent difficiles.":"Continuez : utilisez la fiche Sentence Builders comme aide puis recommencez.";
+}
+function resetAll(){
+ document.querySelectorAll("select").forEach(s=>{s.selectedIndex=0;s.classList.remove("correct","incorrect")});
+ document.querySelectorAll(".feedback").forEach(f=>{f.textContent="";f.className="feedback"});
+ document.getElementById("score").textContent="Score : 0 / 20";
+ document.getElementById("bar").style.width="0";document.getElementById("result").style.display="none";
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("check").onclick=check;
+document.getElementById("reset").onclick=resetAll;
+</script>
+</body>
+</html>
