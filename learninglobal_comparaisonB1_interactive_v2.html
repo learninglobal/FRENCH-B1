@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Learninglobal – La comparaison en contexte | DELF B1</title>
+<style>
+:root{--navy:#17324d;--orange:#f28c28;--green:#2e7d5b;--red:#b94a48;--cream:#fff8ed;--line:#dce4ea}
+*{box-sizing:border-box} body{margin:0;background:#eef2f5;color:#263746;font:16px Arial,sans-serif;line-height:1.5}
+.wrap{max-width:980px;margin:auto;padding:22px}.hero,.card{background:#fff;border-radius:14px;padding:24px;margin-bottom:18px;box-shadow:0 3px 14px #0001}
+.hero{border-top:6px solid var(--orange)}.brand{color:var(--orange);font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.05em}
+h1,h2{color:var(--navy)}h1{margin:.2em 0}.rule,.data{background:var(--cream);border-left:4px solid var(--orange);padding:11px 13px;margin:12px 0;border-radius:6px}
+.q{padding:14px 0;border-top:1px solid var(--line)}.q:first-of-type{border-top:0}
+select{font:inherit;padding:7px 9px;border:1px solid #aab7c1;border-radius:7px;background:#fff;max-width:100%}
+button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:10px 14px;margin-top:8px;cursor:pointer}
+.check{background:var(--navy);color:#fff}.reset{background:#e8edf1;color:var(--navy);margin-left:5px}
+.fb{font-weight:700;margin-top:9px}.ok{color:var(--green)}.bad{color:var(--red)}
+.bar{height:9px;background:#e5eaee;border-radius:9px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:var(--orange);transition:.25s}.pt{text-align:right;font-size:13px;color:#64727d}
+.match{display:grid;grid-template-columns:1.3fr 1fr;gap:8px;align-items:center;margin:9px 0}.match div{padding:8px;background:#f7f9fa;border-radius:7px}
+.builder{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0}.builder-row{display:flex;flex-wrap:wrap;gap:7px;align-items:center;padding:10px;background:#f7f9fa;border-radius:8px}
+.builder-row select{flex:1;min-width:145px}.out{background:var(--cream);border:1px dashed var(--orange);padding:12px;border-radius:7px;margin:8px 0}
+.score{font-weight:700;color:var(--navy);font-size:1.05rem}.foot{text-align:center;color:#71808c;font-size:13px;padding:8px}
+@media(max-width:650px){.wrap{padding:12px}.hero,.card{padding:18px}.match{grid-template-columns:1fr}.builder-row{display:block}.builder-row select{width:100%;margin:4px 0}}
+</style></head>
+<body><div class="wrap">
+<div class="hero">
+<div class="brand">The Learninglobal Project · DELF B1</div>
+<h1>La comparaison en contexte</h1>
+<p><b>Famille, amitié & monde francophone</b></p>
+<p>Entraîne-toi à comparer des personnes, des relations et des réalités familiales. Utilise les structures de comparaison dans des situations proches des thèmes étudiés dans cette unité.</p>
+<div class="bar"><span id="bar"></span></div><div class="pt" id="pt">0 / 5 défis terminés</div>
+</div>
+
+<div class="card" id="d1">
+<h2>Défi 1 – Choisis la bonne forme</h2>
+<p>Complète chaque phrase avec la structure correcte.</p>
+<div class="q" data-a="aussi">1. Une famille recomposée peut être <select><option></option><option>aussi</option><option>autant</option><option>autant de</option></select> unie qu'une famille nucléaire.</div>
+<div class="q" data-a="autant de">2. Les amis peuvent apporter <select><option></option><option>aussi</option><option>autant</option><option>autant de</option></select> soutien que certains membres de la famille.</div>
+<div class="q" data-a="autant">3. On peut <select><option></option><option>aussi</option><option>autant</option><option>autant de</option></select> s'entraider entre amis qu'entre membres d'une famille.</div>
+<div class="q" data-a="plus de">4. Les 16-24 ans ont <select><option></option><option>plus</option><option>plus de</option><option>plus que</option></select> contacts avec leurs amis qu'avec leur famille.</div>
+<div class="q" data-a="mieux">5. Quand les membres d'une famille communiquent <select><option></option><option>meilleur</option><option>mieux</option><option>meilleure</option></select>, ils peuvent mieux se comprendre.</div>
+<div class="q" data-a="meilleure">6. Pour certains adolescents, parler à un ami est une <select><option></option><option>mieux</option><option>meilleur</option><option>meilleure</option></select> solution que rester seul avec son problème.</div>
+<button class="check" onclick="check('d1')">Vérifier</button><button class="reset" onclick="resetCard('d1')">Recommencer</button><div class="fb"></div>
+</div>
+
+<div class="card" id="d2">
+<h2>Défi 2 – Associe les deux parties</h2>
+<p>Choisis la fin qui complète logiquement chaque comparaison.</p>
+<div class="match q" data-a="B"><div><b>1.</b> Les relations amicales peuvent être aussi importantes…</div><select><option value=""></option><option value="A">qu'avec leurs amis.</option><option value="B">que les relations familiales.</option><option value="C">qu'autrefois.</option><option value="D">que rester seul avec son problème.</option></select></div>
+<div class="match q" data-a="A"><div><b>2.</b> Les Français gardent plus le contact avec leur famille…</div><select><option value=""></option><option value="A">qu'avec leurs amis.</option><option value="B">que les relations familiales.</option><option value="C">qu'en 1975.</option><option value="D">qu'une famille nucléaire.</option></select></div>
+<div class="match q" data-a="C"><div><b>3.</b> Aujourd'hui, au Maroc, les ménages sont moins grands…</div><select><option value=""></option><option value="A">qu'avec leur famille.</option><option value="B">que les amis.</option><option value="C">qu'autrefois.</option><option value="D">que les relations amicales.</option></select></div>
+<div class="match q" data-a="D"><div><b>4.</b> Parler à un ami peut être une meilleure solution…</div><select><option value=""></option><option value="A">qu'en Flandre.</option><option value="B">qu'une famille recomposée.</option><option value="C">que communiquer.</option><option value="D">que rester seul avec son problème.</option></select></div>
+<button class="check" onclick="check('d2')">Vérifier</button><button class="reset" onclick="resetCard('d2')">Recommencer</button><div class="fb"></div>
+</div>
+
+<div class="card" id="d3">
+<h2>Défi 3 – Voyage dans la Francophonie</h2>
+<p>Observe les données utilisées dans la fiche <i>La comparaison en contexte</i> et choisis la phrase correcte.</p>
+<div class="q" data-a="a"><div class="data"><b>Wallonie :</b> 12,4 % de ménages monoparentaux · <b>Flandre :</b> 8,4 %</div><select><option value=""></option><option value="a">Il y a plus de ménages monoparentaux en Wallonie qu'en Flandre.</option><option value="b">Il y en a autant en Wallonie qu'en Flandre.</option><option value="c">Il y en a moins en Wallonie qu'en Flandre.</option></select></div>
+<div class="q" data-a="b"><div class="data"><b>Bruxelles :</b> 46,8 % de ménages d'une personne · <b>Flandre :</b> 33,6 %</div><select><option value=""></option><option value="a">Les ménages d'une personne sont moins nombreux à Bruxelles.</option><option value="b">Ils sont plus nombreux à Bruxelles qu'en Flandre.</option><option value="c">Ils sont aussi nombreux dans les deux régions.</option></select></div>
+<div class="q" data-a="c"><div class="data"><b>Maroc :</b> 4,6 personnes par ménage en 2014 · 3,9 en 2024</div><select><option value=""></option><option value="a">Les ménages sont plus grands qu'en 2014.</option><option value="b">Ils sont aussi grands qu'en 2014.</option><option value="c">Les ménages sont moins grands qu'en 2014.</option></select></div>
+<div class="q" data-a="a"><div class="data"><b>Tunisie :</b> 5,5 personnes par ménage en 1975 · environ 3,45 en 2024</div><select><option value=""></option><option value="a">Par rapport à 1975, les ménages tunisiens sont aujourd'hui plus petits.</option><option value="b">Ils sont aujourd'hui plus grands.</option><option value="c">Ils sont aussi grands qu'en 1975.</option></select></div>
+<button class="check" onclick="check('d3')">Vérifier</button><button class="reset" onclick="resetCard('d3')">Recommencer</button><div class="fb"></div>
+</div>
+
+<div class="card" id="d4">
+<h2>Défi 4 – Quel connecteur ?</h2>
+<p>Choisis le connecteur qui exprime le mieux la relation entre les deux idées.</p>
+<div class="q" data-a="alors que">1. Les 16-24 ans ont beaucoup de contacts avec leurs amis, <select><option></option><option>alors que</option><option>par rapport à</option><option>de la même manière que</option></select> les personnes plus âgées en ont moins.</div>
+<div class="q" data-a="Par rapport à">2. <select><option></option><option>Contrairement à</option><option>Par rapport à</option><option>Alors que</option></select> 1975, les ménages tunisiens sont plus petits aujourd'hui.</div>
+<div class="q" data-a="Même si">3. <select><option></option><option>Même si</option><option>Contrairement à</option><option>Autant de</option></select> les ménages deviennent plus petits au Maroc, l'entraide familiale reste importante.</div>
+<div class="q" data-a="cependant">4. Les structures familiales changent ; <select><option></option><option>cependant</option><option>autant</option><option>par rapport à</option></select>, les liens familiaux ne disparaissent pas.</div>
+<div class="q" data-a="Contrairement à">5. <select><option></option><option>Contrairement à</option><option>Autant que</option><option>Plus de</option></select> certaines idées reçues, une famille recomposée peut être aussi unie qu'une famille nucléaire.</div>
+<button class="check" onclick="check('d4')">Vérifier</button><button class="reset" onclick="resetCard('d4')">Recommencer</button><div class="fb"></div>
+</div>
+
+<div class="card" id="d5">
+<h2>Défi 5 – Sentence Builder</h2>
+<p>Construis la phrase demandée en choisissant les bons éléments. Chaque phrase doit être grammaticalement et logiquement correcte.</p>
+
+<div class="builder q" data-a="plus de|en Wallonie|qu'en Flandre">
+<b>1. Compare les ménages monoparentaux.</b>
+<div class="builder-row">Il y a
+<select><option></option><option>plus de</option><option>aussi</option><option>autant</option></select>
+ménages monoparentaux
+<select><option></option><option>en Wallonie</option><option>au Maroc</option><option>en Tunisie</option></select>
+<select><option></option><option>qu'en Flandre</option><option>que les amis</option><option>qu'autrefois</option></select>.</div></div>
+
+<div class="builder q" data-a="plus|avec leurs amis|qu'avec leur famille">
+<b>2. Compare les contacts des 16-24 ans.</b>
+<div class="builder-row">Les 16-24 ans communiquent
+<select><option></option><option>plus</option><option>plus de</option><option>aussi de</option></select>
+<select><option></option><option>avec leurs amis</option><option>avec leurs grands-parents</option><option>avec leurs voisins</option></select>
+<select><option></option><option>qu'avec leur famille</option><option>que la famille</option><option>qu'avec l'autonomie</option></select>.</div></div>
+
+<div class="builder q" data-a="aussi|importantes|que les relations familiales">
+<b>3. Compare l'importance de l'amitié et de la famille.</b>
+<div class="builder-row">Les relations amicales peuvent être
+<select><option></option><option>aussi</option><option>autant de</option><option>autant</option></select>
+<select><option></option><option>importantes</option><option>importance</option><option>important</option></select>
+<select><option></option><option>que les relations familiales</option><option>de relations familiales</option><option>qu'avec la famille</option></select>.</div></div>
+
+<div class="builder q" data-a="mieux|se comprendre|et résoudre les conflits">
+<b>4. Une bonne communication dans la famille.</b>
+<div class="builder-row">Quand les membres d'une famille communiquent
+<select><option></option><option>mieux</option><option>meilleure</option><option>plus de</option></select>, ils peuvent
+<select><option></option><option>se comprendre</option><option>compréhension</option><option>plus compréhension</option></select>
+<select><option></option><option>et résoudre les conflits</option><option>que meilleur</option><option>autant de famille</option></select>.</div></div>
+
+<button class="check" onclick="checkBuilder()">Vérifier</button><button class="reset" onclick="resetBuilder()">Recommencer</button><div class="fb"></div>
+</div>
+
+<div class="card"><h2>Ton résultat</h2><p id="final">Termine les cinq défis pour consolider la comparaison.</p><div class="score" id="score">Score : 0 / 23</div><button class="reset" onclick="location.reload()">Tout recommencer</button></div>
+<div class="foot">The Learninglobal Project · Learn. Learn again. Learn better.</div>
+</div>
+
+<script>
+let done={d1:0,d2:0,d3:0,d4:0,d5:0},pts={d1:0,d2:0,d3:0,d4:0,d5:0};
+function check(id){
+ let c=document.getElementById(id),qs=[...c.querySelectorAll('.q')],n=0;
+ qs.forEach(q=>{let s=q.querySelector('select'),ok=s.value===q.dataset.a;n+=ok;s.style.borderColor=ok?'#2e7d5b':'#b94a48'});
+ pts[id]=n;done[id]=n===qs.length;let f=c.querySelector('.fb');f.className='fb '+(done[id]?'ok':'bad');
+ f.textContent=done[id]?`Bravo ! ${n}/${qs.length}. Défi terminé.`:`${n}/${qs.length}. Relis la phrase et essaie encore.`;update();
+}
+function resetCard(id){
+ let c=document.getElementById(id);c.querySelectorAll('select').forEach(s=>{s.selectedIndex=0;s.style.borderColor=''});
+ c.querySelector('.fb').textContent='';pts[id]=0;done[id]=0;update();
+}
+function checkBuilder(){
+ let c=document.getElementById('d5'),qs=[...c.querySelectorAll('.q')],n=0;
+ qs.forEach(q=>{let vals=[...q.querySelectorAll('select')].map(s=>s.value),ans=q.dataset.a.split('|'),ok=vals.every((v,i)=>v===ans[i]);n+=ok;
+ q.querySelectorAll('select').forEach(s=>s.style.borderColor=ok?'#2e7d5b':'#b94a48')});
+ pts.d5=n;done.d5=n===qs.length;let f=c.querySelector('.fb');f.className='fb '+(done.d5?'ok':'bad');
+ f.textContent=done.d5?`Excellent ! ${n}/${qs.length}. Toutes les phrases sont correctes.`:`${n}/${qs.length}. Certaines phrases doivent être reconstruites.`;update();
+}
+function resetBuilder(){let c=document.getElementById('d5');c.querySelectorAll('select').forEach(s=>{s.selectedIndex=0;s.style.borderColor=''});c.querySelector('.fb').textContent='';pts.d5=0;done.d5=0;update()}
+function update(){
+ let n=Object.values(done).filter(Boolean).length,total=Object.values(pts).reduce((a,b)=>a+b,0);
+ document.getElementById('bar').style.width=(n*20)+'%';document.getElementById('pt').textContent=`${n} / 5 défis terminés`;
+ document.getElementById('score').textContent=`Score : ${total} / 23`;
+ document.getElementById('final').innerHTML=n===5?'<b>Mission accomplie !</b> Tu peux maintenant utiliser différentes structures de comparaison pour parler de la famille, de l’amitié et de réalités francophones.':'Continue : termine les cinq défis.';
+}
+</script>
+</body></html>
