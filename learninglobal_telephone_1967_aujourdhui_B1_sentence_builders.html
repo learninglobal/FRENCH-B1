@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sentence Builders – Le téléphone : 1967 → aujourd’hui</title>
+<style>
+:root{--o:#ef7d00;--o2:#ffa321;--cream:#fff8ee;--ink:#302b27;--muted:#746b62;--line:#efd9bd;--green:#2d7a48}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,var(--o),var(--o2));color:#fff;text-align:center;padding:34px 16px}
+h1{margin:0;font-size:clamp(1.7rem,5vw,2.55rem)} header p{margin:6px 0 0}
+main{max-width:940px;margin:auto;padding:20px 15px 48px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:21px;margin:17px 0}
+.tag{font-size:.78rem;color:var(--o);font-weight:700;letter-spacing:.08em;text-transform:uppercase}h2{margin:.25rem 0 .6rem}
+.builder{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:15px 0}
+label{font-weight:700}select{width:100%;margin-top:6px;padding:11px;border:1px solid #d8c1a5;border-radius:10px;background:#fff;font:inherit}
+.output{margin-top:15px;background:#fff3e2;border-left:5px solid var(--o);padding:15px;border-radius:10px;min-height:58px}
+button{font:inherit;border-radius:11px;padding:11px 14px;cursor:pointer}.action{border:1px solid var(--o);background:var(--o);color:#fff;font-weight:700}.secondary{background:#fff;color:var(--o)}
+.toolbox{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.pill{padding:7px 10px;background:#fffaf3;border:1px solid #e5c9a7;border-radius:999px;font-size:.92rem}
+.prompt{font-weight:700;color:#5b5148}.small{font-size:.91rem;color:var(--muted)}.done{color:var(--green);font-weight:700}
+footer{text-align:center;color:var(--muted);margin-top:28px;font-size:.9rem}
+@media(max-width:650px){.builder{grid-template-columns:1fr}.card{padding:17px}}
+</style>
+</head>
+<body>
+<header><h1>Construisez vos réponses</h1><p>Sentence Builders · Le téléphone : 1967 → aujourd’hui · DELF B1</p></header>
+<main>
+<section class="card">
+<div class="tag">Mode d'emploi</div>
+<h2>Des idées aux phrases</h2>
+<p>Choisissez les éléments qui correspondent à votre opinion. Le Sentence Builder vous aide à construire une réponse claire, mais <strong>vous pouvez ensuite la modifier et ajouter vos propres idées</strong>.</p>
+<div class="toolbox"><span class="pill">À mon avis…</span><span class="pill">Parce que…</span><span class="pill">Cependant…</span><span class="pill">À ta place…</span><span class="pill">Il faudrait…</span><span class="pill">Ça dépend…</span></div>
+</section>
+
+<section class="card">
+<div class="tag">Builder 1 · Comprendre</div>
+<h2>Le problème de Gaston</h2>
+<p class="prompt">Que se passe-t-il quand quelqu'un ne répond pas ?</p>
+<div class="builder">
+<label>Commencez<select id="a1"><option value="">Choisissez…</option><option>Quand quelqu'un ne répond pas au téléphone,</option><option>Quand une personne ne répond pas à un message,</option><option>Si quelqu'un ne répond pas rapidement,</option></select></label>
+<label>Réaction<select id="a2"><option value="">Choisissez…</option><option>on peut simplement attendre.</option><option>on peut essayer de l'appeler plus tard.</option><option>on peut commencer à s'inquiéter.</option><option>on peut envoyer un autre message.</option></select></label>
+</div><button class="action build" data-ids="a1,a2" data-out="out1">Construire ma phrase</button><div class="output" id="out1">Votre phrase apparaîtra ici.</div>
+</section>
+
+<section class="card">
+<div class="tag">Builder 2 · Mes habitudes</div>
+<h2>Quand quelqu'un ne répond pas…</h2>
+<p class="prompt">Que faites-vous personnellement ?</p>
+<div class="builder">
+<label>Habitude<select id="b1"><option value="">Choisissez…</option><option>En général, quand quelqu'un ne répond pas,</option><option>Personnellement, si je n'ai pas de réponse,</option><option>Quand un message reste sans réponse,</option></select></label>
+<label>Action<select id="b2"><option value="">Choisissez…</option><option>j'attends tranquillement</option><option>j'envoie parfois un autre message</option><option>j'appelle si c'est important</option><option>je commence parfois à m'inquiéter</option></select></label>
+<label>Justification<select id="b3"><option value="">Choisissez…</option><option>parce que la personne est peut-être occupée.</option><option>parce que je préfère savoir si tout va bien.</option><option>car tout le monde n'est pas disponible tout le temps.</option><option>mais cela dépend de la situation.</option></select></label>
+</div><button class="action build" data-ids="b1,b2,b3" data-out="out2">Construire ma réponse</button><div class="output" id="out2">Votre réponse apparaîtra ici.</div>
+</section>
+
+<section class="card">
+<div class="tag">Builder 3 · Donner son avis</div>
+<h2>Sommes-nous trop disponibles ?</h2>
+<p class="prompt">Le smartphone nous rend-il trop joignables ?</p>
+<div class="builder">
+<label>Opinion<select id="c1"><option value="">Choisissez…</option><option>À mon avis, nous sommes parfois trop disponibles</option><option>Je pense qu'être joignable est plutôt pratique</option><option>Pour moi, le problème n'est pas le smartphone lui-même</option><option>Ça dépend de la manière dont on utilise son téléphone</option></select></label>
+<label>Raison<select id="c2"><option value="">Choisissez…</option><option>parce que nous recevons des messages et des notifications toute la journée.</option><option>parce qu'on peut communiquer rapidement en cas de besoin.</option><option>parce que chacun peut décider quand répondre.</option><option>car certaines personnes se sentent obligées de répondre immédiatement.</option></select></label>
+<label>Nuance<select id="c3"><option value="">Choisissez…</option><option>Cependant, il est utile de pouvoir rester en contact.</option><option>En revanche, nous avons aussi besoin de moments sans écran.</option><option>Mais il faut trouver un équilibre.</option><option>D'un côté, le smartphone facilite la communication ; de l'autre, il peut créer une pression.</option></select></label>
+</div><button class="action build" data-ids="c1,c2,c3" data-out="out3">Construire mon opinion</button><div class="output" id="out3">Votre opinion apparaîtra ici.</div>
+</section>
+
+<section class="card">
+<div class="tag">Builder 4 · Comparer</div>
+<h2>1967 ↔ aujourd'hui</h2>
+<p class="prompt">Comment la communication a-t-elle changé ?</p>
+<div class="builder">
+<label>En 1967<select id="d1"><option value="">Choisissez…</option><option>En 1967, le téléphone servait surtout à appeler</option><option>En 1967, il fallait être près du téléphone pour répondre</option><option>En 1967, il était plus facile de ne pas être joignable</option></select></label>
+<label>Connecteur<select id="d2"><option value="">Choisissez…</option><option>alors qu'aujourd'hui</option><option>tandis qu'aujourd'hui</option><option>mais aujourd'hui</option></select></label>
+<label>Aujourd'hui<select id="d3"><option value="">Choisissez…</option><option>le smartphone nous accompagne presque partout.</option><option>nous pouvons appeler, écrire et envoyer des messages vocaux.</option><option>nous recevons des notifications à tout moment.</option><option>il est beaucoup plus facile de rester en contact.</option></select></label>
+</div><button class="action build" data-ids="d1,d2,d3" data-out="out4">Construire ma comparaison</button><div class="output" id="out4">Votre comparaison apparaîtra ici.</div>
+</section>
+
+<section class="card">
+<div class="tag">Builder 5 · Gaston en 2026</div>
+<h2>Pourquoi ne répond-il pas ?</h2>
+<div class="builder">
+<label>Situation<select id="e1"><option value="">Choisissez…</option><option>En 2026, Gaston ne répond toujours pas</option><option>Le smartphone de Gaston sonne, mais il ne répond pas</option><option>Gaston reçoit des messages et des notifications, mais il reste déconnecté</option></select></label>
+<label>Explication<select id="e2"><option value="">Choisissez…</option><option>parce qu'il veut faire une pause numérique.</option><option>parce qu'il ne veut pas être dérangé.</option><option>parce qu'il préfère profiter du moment présent.</option><option>parce qu'il reçoit trop de notifications.</option></select></label>
+<label>Mon avis<select id="e3"><option value="">Choisissez…</option><option>À mon avis, il a raison de se déconnecter parfois.</option><option>Je comprends son choix, mais cela dépend de la situation.</option><option>Je pense qu'il devrait répondre aux messages importants.</option></select></label>
+</div><button class="action build" data-ids="e1,e2,e3" data-out="out5">Construire ma réponse</button><div class="output" id="out5">Votre réponse apparaîtra ici.</div>
+</section>
+
+<section class="card">
+<div class="tag">Builder 6 · Conseiller</div>
+<h2>Que conseiller à Gaston ?</h2>
+<div class="builder">
+<label>Formule<select id="f1"><option value="">Choisissez…</option><option>À ta place,</option><option>Tu devrais</option><option>On pourrait</option><option>Il faudrait</option></select></label>
+<label>Conseil<select id="f2"><option value="">Choisissez…</option><option data-for="À ta place,">je désactiverais certaines notifications.</option><option data-for="À ta place,">je choisirais des moments sans téléphone.</option><option data-for="Tu devrais">désactiver certaines notifications.</option><option data-for="Tu devrais">prévenir tes amis avant de te déconnecter.</option><option data-for="On pourrait">choisir des moments sans téléphone.</option><option data-for="On pourrait">limiter les notifications inutiles.</option><option data-for="Il faudrait">trouver un équilibre entre connexion et déconnexion.</option><option data-for="Il faudrait">respecter le droit de ne pas répondre immédiatement.</option></select></label>
+</div><button class="action" id="advice">Construire mon conseil</button><div class="output" id="out6">Votre conseil apparaîtra ici.</div>
+<p class="small">Le deuxième menu s'adapte à la structure choisie : <em>À ta place + conditionnel</em>, <em>tu devrais + infinitif</em>, <em>on pourrait + infinitif</em>, <em>il faudrait + infinitif</em>.</p>
+</section>
+
+<section class="card">
+<div class="tag">Builder final · Forum</div>
+<h2>Avons-nous le droit d'être injoignables ?</h2>
+<p>Construisez un mini-paragraphe que vous pourrez ensuite personnaliser avant de participer au Forum.</p>
+<div class="builder">
+<label>Opinion<select id="z1"><option value="">Choisissez…</option><option>À mon avis, nous avons le droit de ne pas être joignables tout le temps.</option><option>Je pense qu'il est normal de répondre rapidement quand un message est important.</option><option>Pour moi, être connecté est utile, mais il faut savoir se déconnecter.</option></select></label>
+<label>Argument<select id="z2"><option value="">Choisissez…</option><option>Nous avons besoin de moments sans notifications pour nous concentrer ou nous reposer.</option><option>Le smartphone facilite beaucoup la communication dans la vie quotidienne.</option><option>Être toujours disponible peut créer du stress et une pression inutile.</option></select></label>
+<label>Nuance<select id="z3"><option value="">Choisissez…</option><option>Cependant, cela dépend de la situation.</option><option>En revanche, il ne faut pas ignorer les messages vraiment importants.</option><option>D'un côté, nous voulons rester en contact ; de l'autre, nous avons besoin de limites.</option></select></label>
+<label>Solution<select id="z4"><option value="">Choisissez…</option><option>Il faudrait donc accepter que les autres ne répondent pas immédiatement.</option><option>On pourrait désactiver certaines notifications pendant la journée.</option><option>À mon avis, chacun devrait pouvoir décider quand il souhaite être disponible.</option></select></label>
+<label>Question aux autres<select id="z5"><option value="">Choisissez…</option><option>Et vous, vous sentez-vous obligé(e) de répondre rapidement ?</option><option>Pourriez-vous passer une journée entière sans votre téléphone ?</option><option>Pensez-vous que nous sommes devenus trop disponibles ?</option></select></label>
+</div><button class="action build" data-ids="z1,z2,z3,z4,z5" data-out="final">Construire mon brouillon</button><div class="output" id="final">Votre brouillon apparaîtra ici.</div>
+<p class="small"><strong>Important :</strong> utilisez ce texte comme échafaudage. Avant de publier, ajoutez au moins <strong>un exemple personnel</strong> et modifiez une phrase pour que la contribution vous ressemble.</p>
+</section>
+
+<section class="card"><div class="tag">Mission accomplie ?</div><h2>Votre boîte à outils est prête</h2>
+<p id="status">Construisez plusieurs réponses avant de passer au Forum.</p>
+<button class="action secondary" id="reset" type="button">Recommencer</button></section>
+<footer><strong>The Learninglobal Project</strong><br>Learn. Learn again. Learn better.</footer>
+</main>
+<script>
+(()=>{let made=new Set();
+function update(){let s=document.querySelector('#status');s.innerHTML=made.size>=5?'<span class="done">✓ Vous avez construit plusieurs réponses. Vous êtes prêt(e) à les personnaliser et à participer au Forum.</span>':'Vous avez construit '+made.size+' réponse(s). Continuez à expérimenter avec les Sentence Builders.'}
+function build(ids,out){let vals=ids.map(id=>document.querySelector('#'+id).value);let o=document.querySelector('#'+out);if(vals.some(v=>!v)){o.innerHTML='<strong>Choisissez un élément dans chaque colonne.</strong>';return}o.textContent=vals.join(' ');made.add(out);update()}
+document.querySelectorAll('.build').forEach(b=>b.addEventListener('click',()=>build(b.dataset.ids.split(','),b.dataset.out)));
+const f1=document.querySelector('#f1'),f2=document.querySelector('#f2'),all=[...f2.options].slice(1).map(o=>({text:o.textContent,for:o.dataset.for}));
+function refill(){let v=f1.value;f2.innerHTML='<option value="">Choisissez…</option>';all.filter(x=>x.for===v).forEach(x=>{let o=document.createElement('option');o.textContent=x.text;f2.appendChild(o)})}
+f1.addEventListener('change',refill);
+document.querySelector('#advice').addEventListener('click',()=>{if(!f1.value||!f2.value){document.querySelector('#out6').innerHTML='<strong>Choisissez une formule et un conseil.</strong>';return}document.querySelector('#out6').textContent=f1.value+' '+f2.value;made.add('out6');update()});
+document.querySelector('#reset').addEventListener('click',()=>{document.querySelectorAll('select').forEach(s=>s.selectedIndex=0);refill();document.querySelectorAll('.output').forEach(o=>o.textContent=o.id==='final'?'Votre brouillon apparaîtra ici.':'Votre réponse apparaîtra ici.');made.clear();update();window.scrollTo({top:0,behavior:'smooth'})});
+update()})();
+</script></body></html>
