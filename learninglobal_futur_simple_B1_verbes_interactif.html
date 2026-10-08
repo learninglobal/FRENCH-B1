@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Le futur simple – Verbes interactifs B1 | Learninglobal</title>
+<style>
+:root{--o:#ef7d00;--o2:#ffa321;--cream:#fff8ee;--ink:#302b27;--muted:#746b62;--line:#efd9bd;--green:#287846;--red:#b4483d}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);line-height:1.5}
+header{background:linear-gradient(135deg,var(--o),var(--o2));color:white;text-align:center;padding:34px 16px}
+h1{margin:0;font-size:clamp(1.8rem,5vw,2.6rem)}
+header p{margin:7px 0 0}
+.wrap{max-width:950px;margin:auto;padding:20px 15px 48px}
+.card,.progress{background:white;border:1px solid var(--line);border-radius:18px;padding:21px;margin:17px 0}
+.tag{font-size:.78rem;color:var(--o);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+h2{margin:.25rem 0 .6rem}
+.small{font-size:.92rem;color:var(--muted)}
+.track{height:10px;background:#f2e5d4;border-radius:20px;overflow:hidden;margin:8px 0}
+.bar{height:100%;width:0;background:linear-gradient(90deg,var(--o),var(--o2));transition:.25s}
+.q{padding:15px 0;border-top:1px solid #f2e8dc}
+.q:first-of-type{border-top:0}
+.opts{display:grid;gap:8px;margin-top:9px}
+.opt,.action{font:inherit;border-radius:11px;padding:11px 13px;cursor:pointer}
+.opt{background:#fff;border:1px solid #dfc5a4;text-align:left}
+.opt:hover,.opt.sel{border-color:var(--o);background:#fff0dc}
+.opt.sel{font-weight:700}
+.action{border:1px solid var(--o);background:var(--o);color:#fff;font-weight:700;margin-top:8px}
+.secondary{background:#fff;color:var(--o)}
+.fb{min-height:22px;margin-top:7px;font-weight:700}
+.good{color:var(--green)} .bad{color:var(--red)}
+.rule{padding:13px;background:#fff3e2;border-left:5px solid var(--o);border-radius:9px;margin:10px 0}
+input[type=text]{font:inherit;width:190px;max-width:100%;padding:9px 10px;border:1px solid #d7c1a7;border-radius:9px}
+.fillrow{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+select{font:inherit;width:100%;padding:10px;border:1px solid #d7c1a7;border-radius:9px;background:#fff}
+.result{padding:15px;background:#fff3e2;border-left:5px solid var(--o);border-radius:9px;margin-top:13px}
+footer{text-align:center;color:var(--muted);margin-top:28px;font-size:.9rem}
+@media(max-width:650px){.match{grid-template-columns:1fr}.card{padding:17px}}
+</style>
+</head>
+<body>
+<header>
+<h1>Le futur simple</h1>
+<p>Défi verbes · Projets d'avenir · DELF B1</p>
+</header>
+
+<main class="wrap">
+<section class="card">
+<div class="tag">Mémo express</div>
+<h2>Comment former le futur simple ?</h2>
+<div class="rule"><b>Infinitif + terminaisons :</b> -ai, -as, -a, -ons, -ez, -ont</div>
+<p><b>travailler → je travaillerai</b><br>
+<b>choisir → nous choisirons</b><br>
+Pour les verbes en <b>-re</b>, on enlève le <b>-e</b> final : <b>prendre → je prendrai</b>.</p>
+<p class="small">Quelques radicaux irréguliers utiles : être → <b>ser-</b> · avoir → <b>aur-</b> · aller → <b>ir-</b> · faire → <b>fer-</b> · pouvoir → <b>pourr-</b> · vouloir → <b>voudr-</b>.</p>
+</section>
+
+<div class="progress">
+<b>Votre progression</b>
+<div class="track"><div class="bar" id="bar"></div></div>
+<span class="small" id="score">0 / 24 réponses correctes</span>
+</div>
+
+<section class="card">
+<div class="tag">Activité 1 · Terminaisons</div>
+<h2>Choisissez la bonne forme</h2>
+
+<div class="q" data-a="b"><b>1. Plus tard, je ___ dans le domaine de l'éducation. (travailler)</b>
+<div class="opts"><button class="opt" data-v="a">travaillera</button><button class="opt" data-v="b">travaillerai</button><button class="opt" data-v="c">travailleras</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="c"><b>2. Après le lycée, nous ___ nos études. (continuer)</b>
+<div class="opts"><button class="opt" data-v="a">continuerez</button><button class="opt" data-v="b">continueront</button><button class="opt" data-v="c">continuerons</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="a"><b>3. Tu ___ une formation qui te correspond. (choisir)</b>
+<div class="opts"><button class="opt" data-v="a">choisiras</button><button class="opt" data-v="b">choisira</button><button class="opt" data-v="c">choisirai</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="c"><b>4. Mes amis ___ peut-être un stage en entreprise. (chercher)</b>
+<div class="opts"><button class="opt" data-v="a">chercherez</button><button class="opt" data-v="b">chercherons</button><button class="opt" data-v="c">chercheront</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="b"><b>5. Vous ___ à une journée portes ouvertes. (participer)</b>
+<div class="opts"><button class="opt" data-v="a">participerons</button><button class="opt" data-v="b">participerez</button><button class="opt" data-v="c">participeras</button></div><div class="fb"></div></div>
+</section>
+
+<section class="card">
+<div class="tag">Activité 2 · Verbes en -re</div>
+<h2>Attention au radical</h2>
+
+<div class="q" data-a="a"><b>6. Je ___ rendez-vous avec un conseiller d'orientation. (prendre)</b>
+<div class="opts"><button class="opt" data-v="a">prendrai</button><button class="opt" data-v="b">prendreai</button><button class="opt" data-v="c">prendrerai</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="c"><b>7. Elle ___ son CV à l'entreprise. (vendre n'est pas logique ici : envoyer)</b>
+<div class="opts"><button class="opt" data-v="a">envoira</button><button class="opt" data-v="b">envoyera</button><button class="opt" data-v="c">enverra</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="b"><b>8. Nous ___ mieux le monde du travail après le stage. (comprendre)</b>
+<div class="opts"><button class="opt" data-v="a">comprendrerons</button><button class="opt" data-v="b">comprendrons</button><button class="opt" data-v="c">comprendrions</button></div><div class="fb"></div></div>
+</section>
+
+<section class="card">
+<div class="tag">Activité 3 · Radicaux irréguliers</div>
+<h2>Choisissez le bon futur</h2>
+
+<div class="q" data-a="c"><b>9. L'année prochaine, je ___ étudiant(e) à l'université. (être)</b>
+<div class="opts"><button class="opt" data-v="a">êtrai</button><button class="opt" data-v="b">suis</button><button class="opt" data-v="c">serai</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="a"><b>10. Après mon stage, j'___ plus d'expérience. (avoir)</b>
+<div class="opts"><button class="opt" data-v="a">aurai</button><button class="opt" data-v="b">avoirai</button><button class="opt" data-v="c">aura</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="b"><b>11. Nous ___ à un forum d'orientation. (aller)</b>
+<div class="opts"><button class="opt" data-v="a">allerons</button><button class="opt" data-v="b">irons</button><button class="opt" data-v="c">irez</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="c"><b>12. Elle ___ un stage dans le tourisme. (faire)</b>
+<div class="opts"><button class="opt" data-v="a">faisera</button><button class="opt" data-v="b">faira</button><button class="opt" data-v="c">fera</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="a"><b>13. Vous ___ comparer plusieurs formations. (pouvoir)</b>
+<div class="opts"><button class="opt" data-v="a">pourrez</button><button class="opt" data-v="b">pouvoirez</button><button class="opt" data-v="c">pourrons</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="b"><b>14. Plus tard, ils ___ peut-être travailler à l'étranger. (vouloir)</b>
+<div class="opts"><button class="opt" data-v="a">vouleront</button><button class="opt" data-v="b">voudront</button><button class="opt" data-v="c">voudrez</button></div><div class="fb"></div></div>
+</section>
+
+<section class="card">
+<div class="tag">Activité 4 · À vous de conjuguer</div>
+<h2>Écrivez le verbe au futur simple</h2>
+<p class="small">Les accents ne sont pas nécessaires pour les réponses de cet exercice.</p>
+
+<div class="fillrow"><span>15. Demain, le conseiller m'___ les formations possibles. <b>(expliquer)</b></span><input id="f15" type="text"><button class="action checkfill" data-id="f15" data-a="expliquera" data-n="15">Vérifier</button><span class="fb"></span></div>
+<div class="fillrow"><span>16. Après le bac, tu ___ tes études à l'université. <b>(continuer)</b></span><input id="f16" type="text"><button class="action checkfill" data-id="f16" data-a="continueras" data-n="16">Vérifier</button><span class="fb"></span></div>
+<div class="fillrow"><span>17. Nous ___ plusieurs métiers avant de choisir. <b>(découvrir)</b></span><input id="f17" type="text"><button class="action checkfill" data-id="f17" data-a="découvrirons|decouvrirons" data-n="17">Vérifier</button><span class="fb"></span></div>
+<div class="fillrow"><span>18. Je ___ mon CV pour chercher un stage. <b>(préparer)</b></span><input id="f18" type="text"><button class="action checkfill" data-id="f18" data-a="préparerai|preparerai" data-n="18">Vérifier</button><span class="fb"></span></div>
+<div class="fillrow"><span>19. Cette expérience m'___ à choisir mon orientation. <b>(aider)</b></span><input id="f19" type="text"><button class="action checkfill" data-id="f19" data-a="aidera" data-n="19">Vérifier</button><span class="fb"></span></div>
+</section>
+
+<section class="card">
+<div class="tag">Activité 5 · Dans un contexte B1</div>
+<h2>Complétez le projet d'avenir</h2>
+
+<div class="q" data-a="b"><b>20. Après le lycée, Maxime ___ probablement des études d'informatique.</b>
+<div class="opts"><button class="opt" data-v="a">choisirai</button><button class="opt" data-v="b">choisira</button><button class="opt" data-v="c">choisirons</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="a"><b>21. Grâce à son stage, Océane ___ mieux le métier d'éducatrice.</b>
+<div class="opts"><button class="opt" data-v="a">connaîtra</button><button class="opt" data-v="b">connaîtrai</button><button class="opt" data-v="c">connaîtrea</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="c"><b>22. Dans quelques années, les outils numériques ___ encore notre façon d'étudier.</b>
+<div class="opts"><button class="opt" data-v="a">changerons</button><button class="opt" data-v="b">changerez</button><button class="opt" data-v="c">changeront</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="b"><b>23. Si je choisis cette formation, je ___ travailler dans plusieurs domaines.</b>
+<div class="opts"><button class="opt" data-v="a">pourra</button><button class="opt" data-v="b">pourrai</button><button class="opt" data-v="c">pouvoirai</button></div><div class="fb"></div></div>
+
+<div class="q" data-a="a"><b>24. Plus tard, mes études me ___ à réaliser mon projet professionnel.</b>
+<div class="opts"><button class="opt" data-v="a">permettront</button><button class="opt" data-v="b">permettrai</button><button class="opt" data-v="c">permetteront</button></div><div class="fb"></div></div>
+</section>
+
+<section class="card">
+<div class="tag">Défi final</div>
+<h2>Construisez votre mini-projet au futur</h2>
+<div class="match">
+<label>Après le lycée…
+<select id="p1"><option value="">Choisissez…</option><option>je continuerai mes études.</option><option>je chercherai une formation qui me correspond.</option><option>je ferai peut-être un stage.</option></select></label>
+<label>Pour mon orientation…
+<select id="p2"><option value="">Choisissez…</option><option>je parlerai avec un conseiller.</option><option>j'irai à une journée portes ouvertes.</option><option>je comparerai plusieurs formations.</option></select></label>
+<label>Plus tard…
+<select id="p3"><option value="">Choisissez…</option><option>je travaillerai dans l'éducation.</option><option>je serai peut-être ingénieur(e).</option><option>je pourrai travailler dans le tourisme.</option></select></label>
+<label>Grâce à ces expériences…
+<select id="p4"><option value="">Choisissez…</option><option>je connaîtrai mieux mes intérêts.</option><option>j'aurai une idée plus claire de mon avenir.</option><option>je choisirai plus facilement mon projet professionnel.</option></select></label>
+</div>
+<button class="action" id="make">Construire mon texte</button>
+<div class="result" id="result">Votre mini-projet apparaîtra ici.</div>
+<p class="small"><b>Défi Learninglobal :</b> lisez ensuite votre texte à voix haute et remplacez au moins une idée par votre propre projet.</p>
+</section>
+
+<section class="card"><button class="action secondary" id="reset">Recommencer</button></section>
+
+<footer><b>The Learninglobal Project</b><br>Learn. Learn again. Learn better.</footer>
+</main>
+
+<script>
+(() => {
+  const correct = new Set();
+  const total = 24;
+  const bar = document.getElementById('bar');
+  const score = document.getElementById('score');
+
+  function update(){
+    bar.style.width = (correct.size / total * 100) + '%';
+    score.textContent = correct.size + ' / ' + total + ' réponses correctes';
+  }
+
+  document.querySelectorAll('.q').forEach((q, idx) => {
+    const number = idx < 14 ? idx + 1 : idx + 6; // 1-14 then 20-24
+    q.querySelectorAll('.opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        q.querySelectorAll('.opt').forEach(x => x.classList.remove('sel'));
+        btn.classList.add('sel');
+        const ok = btn.dataset.v === q.dataset.a;
+        const fb = q.querySelector('.fb');
+        fb.textContent = ok ? '✓ Bravo !' : 'Pas encore. Regardez le sujet et le radical.';
+        fb.className = 'fb ' + (ok ? 'good' : 'bad');
+        if(ok) correct.add(number);
+        update();
+      });
+    });
+  });
+
+  document.querySelectorAll('.checkfill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = document.getElementById(btn.dataset.id);
+      const answers = btn.dataset.a.toLowerCase().split('|');
+      const value = input.value.trim().toLowerCase();
+      const ok = answers.includes(value);
+      const fb = btn.parentElement.querySelector('.fb');
+      fb.textContent = ok ? '✓ Bravo !' : 'Pas encore.';
+      fb.className = 'fb ' + (ok ? 'good' : 'bad');
+      if(ok) correct.add(Number(btn.dataset.n));
+      update();
+    });
+  });
+
+  document.getElementById('make').addEventListener('click', () => {
+    const values = ['p1','p2','p3','p4'].map(id => document.getElementById(id).value);
+    document.getElementById('result').innerHTML = values.some(v => !v)
+      ? '<b>Choisissez une proposition dans chaque partie.</b>'
+      : '<b>Mon projet d’avenir</b><br>' + values.join(' ');
+  });
+
+  document.getElementById('reset').addEventListener('click', () => {
+    correct.clear();
+    document.querySelectorAll('.opt').forEach(x => x.classList.remove('sel'));
+    document.querySelectorAll('.fb').forEach(x => x.textContent = '');
+    document.querySelectorAll('input[type=text]').forEach(x => x.value = '');
+    document.querySelectorAll('select').forEach(x => x.selectedIndex = 0);
+    document.getElementById('result').textContent = 'Votre mini-projet apparaîtra ici.';
+    update();
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>
